@@ -191,50 +191,87 @@
 
   /* ======================================================================
      reCAPTCHA v3  (invisible)
+     ----------------------------------------------------------------------
+     When a site key is configured, a valid token is MANDATORY. If reCAPTCHA
+     cannot be reached, or returns nothing, the form refuses to submit and
+     nothing is sent to EmailJS or Zapier. A form that quietly submits when
+     its bot check failed is not protected at all.
      ====================================================================== */
-  var recaptchaReady = false;
+  var recaptchaState = "idle";   // idle | loading | ready | failed
+
+  function recaptchaRequired() {
+    var rc = cfg.recaptcha || {};
+    return !!(rc.enabled && !isPlaceholder(rc.siteKey));
+  }
 
   function loadRecaptcha() {
     var rc = cfg.recaptcha || {};
-    if (!rc.enabled || isPlaceholder(rc.siteKey)) return;
+    if (!rc.enabled) return;
 
+    if (isPlaceholder(rc.siteKey)) {
+      console.warn("[form] reCAPTCHA is enabled but siteKey is not set in config.js. " +
+                   "The form will still work, but it is not protected by reCAPTCHA.");
+      return;
+    }
+
+    recaptchaState = "loading";
     var s = document.createElement("script");
     s.src = "https://www.google.com/recaptcha/api.js?render=" + encodeURIComponent(rc.siteKey);
     s.async = true;
     s.defer = true;
-    s.onload = function () { recaptchaReady = true; };
+    s.onload = function () { recaptchaState = "ready"; };
+    s.onerror = function () {
+      recaptchaState = "failed";
+      console.error("[form] reCAPTCHA failed to load. Submissions are blocked until it does.");
+    };
     document.head.appendChild(s);
+  }
+
+  /* The visitor may submit before the reCAPTCHA script has finished loading,
+     so wait for it rather than failing them straight away. */
+  function whenRecaptchaReady(timeoutMs) {
+    return new Promise(function (resolve) {
+      if (recaptchaState === "ready")  { resolve(true);  return; }
+      if (recaptchaState === "failed") { resolve(false); return; }
+
+      var waited = 0, step = 120;
+      var poll = window.setInterval(function () {
+        if (recaptchaState === "ready") { window.clearInterval(poll); resolve(true); }
+        else if (recaptchaState === "failed") { window.clearInterval(poll); resolve(false); }
+        else if ((waited += step) >= timeoutMs) { window.clearInterval(poll); resolve(false); }
+      }, step);
+    });
   }
 
   function getRecaptchaToken() {
     var rc = cfg.recaptcha || {};
-    return new Promise(function (resolve) {
-      if (!rc.enabled || isPlaceholder(rc.siteKey) || !recaptchaReady || !window.grecaptcha) {
-        resolve(null);
-        return;
-      }
-      // Never let a slow or blocked reCAPTCHA stop a genuine lead submitting.
-      var settled = false;
-      var timer = window.setTimeout(function () {
-        if (!settled) { settled = true; resolve(null); }
-      }, 6000);
+    if (!recaptchaRequired()) return Promise.resolve(null);
 
-      try {
-        window.grecaptcha.ready(function () {
-          window.grecaptcha
-            .execute(rc.siteKey, { action: rc.action || "lead_submit" })
-            .then(function (token) {
-              if (settled) return;
-              settled = true; window.clearTimeout(timer); resolve(token);
-            })
-            .catch(function () {
-              if (settled) return;
-              settled = true; window.clearTimeout(timer); resolve(null);
-            });
-        });
-      } catch (e) {
-        if (!settled) { settled = true; window.clearTimeout(timer); resolve(null); }
-      }
+    return whenRecaptchaReady(10000).then(function (ready) {
+      if (!ready || !window.grecaptcha) return null;
+
+      return new Promise(function (resolve) {
+        var settled = false;
+        var timer = window.setTimeout(function () {
+          if (!settled) { settled = true; resolve(null); }
+        }, 10000);
+
+        function done(token) {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timer);
+          resolve(token || null);
+        }
+
+        try {
+          window.grecaptcha.ready(function () {
+            window.grecaptcha
+              .execute(rc.siteKey, { action: rc.action || "lead_submit" })
+              .then(done)
+              .catch(function () { done(null); });
+          });
+        } catch (e) { done(null); }
+      });
     });
   }
 
@@ -277,48 +314,87 @@
   function validate(form) {
     var ok = true, firstBad = null;
 
+    function fail(input, message) {
+      markInvalid(input, message);
+      ok = false;
+      if (!firstBad) firstBad = input;
+    }
+
+    /* --- Full name. Required, and must actually contain letters. --------- */
     var name = form.elements.name;
+    var nameValue = name.value.trim().replace(/\s+/g, " ");
+    if (!nameValue) {
+      fail(name, "Please enter your full name.");
+    } else if (nameValue.length < 2) {
+      fail(name, "Please enter your full name.");
+    } else if (!/[A-Za-z\u00C0-\u024F\u0600-\u06FF]/.test(nameValue)) {
+      fail(name, "Please enter your name using letters.");
+    }
+
+    /* --- WhatsApp number. Required, checked against the country code. ----
+       UAE mobiles are nine digits starting with 5, so a wrong number is
+       caught here rather than after you have paid for the click.          */
     var phone = form.elements.phone;
+    var code = form.elements.country_code ? form.elements.country_code.value : "";
+    var digits = phone.value.replace(/\D/g, "").replace(/^0+/, "");
+    if (!digits) {
+      fail(phone, "Please enter your WhatsApp number.");
+    } else if (code === "+971" && !/^5\d{8}$/.test(digits)) {
+      fail(phone, "Enter a UAE mobile number, for example 50 123 4567.");
+    } else if (digits.length < 6 || digits.length > 15) {
+      fail(phone, "Please enter a valid number.");
+    }
+
+    /* --- Email. Required. ------------------------------------------------ */
     var email = form.elements.email;
+    var emailValue = email.value.trim();
+    if (!emailValue) {
+      fail(email, "Please enter your email address.");
+    } else if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(emailValue)) {
+      fail(email, "Please enter a valid email address.");
+    }
+
+    /* --- Country code. Required, and must be one of the listed options. -- */
+    var codeField = form.elements.country_code;
+    if (codeField && !codeField.value) {
+      fail(codeField, "Please choose a country code.");
+    }
+
+    /* --- Timeline. The one qualifying question. Required. ---------------- */
     var timeline = form.elements.timeline;
-
-    if (!name.value.trim() || name.value.trim().length < 2) {
-      markInvalid(name, "Please enter your name."); ok = false; firstBad = firstBad || name;
-    }
-
-    var digits = phone.value.replace(/\D/g, "");
-    if (digits.length < 6 || digits.length > 15) {
-      markInvalid(phone, "Please enter a valid number."); ok = false; firstBad = firstBad || phone;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
-      markInvalid(email, "Please enter a valid email address."); ok = false; firstBad = firstBad || email;
-    }
-
     if (!timeline.value) {
-      markInvalid(timeline, "Please choose a timeline."); ok = false; firstBad = firstBad || timeline;
+      fail(timeline, "Please choose a timeline.");
     }
 
     if (firstBad) firstBad.focus({ preventScroll: false });
     return ok;
   }
 
-  /* ---------- spam traps --------------------------------------------------- */
-  function looksLikeBot(form) {
+  /* ---------- spam traps ---------------------------------------------------
+     Two separate signals, handled differently on purpose.
+
+     The honeypot is conclusive: the field is invisible to people, so anything
+     typed into it is automation. That submission is dropped without a word.
+
+     A fast submission is only a hint. Browser autofill can complete this form
+     in well under a second, so treating speed as proof of a bot silently threw
+     away genuine enquiries and showed those buyers a thank you page for a lead
+     that was never sent. It now asks them to submit again instead, which costs
+     a real person one extra click and stops a scripted burst.
+  -------------------------------------------------------------------------- */
+  function honeypotTripped(form) {
     var rc = cfg.recaptcha || {};
+    if (rc.honeypot === false) return false;
+    var hp = form.elements.hp_field;
+    return !!(hp && hp.value.trim() !== "");
+  }
 
-    // 1. Honeypot. A person cannot see this field, so anything in it is a bot.
-    if (rc.honeypot !== false) {
-      var hp = form.elements.company;
-      if (hp && hp.value.trim() !== "") return true;
-    }
-
-    // 2. Time on form. Scripts submit far faster than anyone can type.
+  function submittedTooFast(form) {
+    var rc = cfg.recaptcha || {};
     var minSeconds = typeof rc.minSecondsOnForm === "number" ? rc.minSecondsOnForm : 3;
+    if (minSeconds <= 0) return false;
     var elapsed = (Date.now() - Number(form.dataset.startedAt || 0)) / 1000;
-    if (minSeconds > 0 && elapsed < minSeconds) return true;
-
-    return false;
+    return elapsed < minSeconds;
   }
 
   /* ---------- status helpers ---------------------------------------------- */
@@ -329,30 +405,48 @@
     el.textContent = message || "";
   }
 
-  function setBusy(form, busy) {
+  function setBusy(form, busy, busyLabel) {
     var btn = form.querySelector("button[type=submit]");
     if (!btn) return;
     btn.setAttribute("aria-busy", busy ? "true" : "false");
     btn.disabled = !!busy;
     var label = btn.querySelector(".btn__label");
-    if (label) label.textContent = busy ? "Sending" : "Get the Price List";
+    if (label) label.textContent = busy ? (busyLabel || "Sending") : "Get the Price List";
   }
 
   /* ---------- submit ------------------------------------------------------- */
   function submitForm(form) {
     setStatus(form, "", "");
+
+    /* 1. Every field must be valid. Nothing else runs until it is. */
     if (!validate(form)) return;
 
-    // A bot gets the same friendly screen as everyone else, but nothing is
-    // sent anywhere and no conversion is recorded.
-    if (looksLikeBot(form)) {
+    /* 2. Conclusive bot signal. Dropped silently, nothing sent. */
+    if (honeypotTripped(form)) {
       window.location.href = behaviour.thankYouUrl || "thank-you.html";
       return;
     }
 
-    setBusy(form, true);
+    /* 3. Suspiciously fast. Ask for a second attempt rather than binning it. */
+    if (submittedTooFast(form)) {
+      setStatus(form, "error", "Please take a moment to check your details, then send again.");
+      return;
+    }
+
+    /* 4. reCAPTCHA. When a site key is configured this is mandatory: no
+          valid token means the submission is refused and nothing is sent. */
+    setBusy(form, true, recaptchaRequired() ? "Verifying" : "Sending");
 
     getRecaptchaToken().then(function (token) {
+      if (recaptchaRequired() && !token) {
+        setBusy(form, false);
+        setStatus(form, "error",
+          "We could not confirm that you are a real visitor, so your details were not sent. " +
+          "Please reload the page and try again.");
+        return;
+      }
+
+      setBusy(form, true, "Sending");
       var lead = buildLead(form, token);
 
       return Promise.allSettled([sendEmailJS(lead), sendZapier(lead)])

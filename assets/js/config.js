@@ -110,11 +110,16 @@ window.LP_CONFIG = {
      ---------------------------------------------------------------------- */
   recaptcha: {
     enabled: true,
-    siteKey: "YOUR_RECAPTCHA_V3_SITE_KEY",
+    siteKey: "6LewY6wtAAAAALi2Lk7Mlp0W39rgj_C1S-AaOUge",
     action:  "lead_submit",   // shows up in your reCAPTCHA admin analytics
+    // With a siteKey set, a valid token is REQUIRED. If reCAPTCHA cannot be
+    // reached the form refuses to submit and nothing is sent anywhere.
+    // Set enabled to false only if you deliberately want the form unprotected.
+
     // Page-side spam traps. Leave these on.
-    honeypot:      true,
-    minSecondsOnForm: 3       // submissions faster than this are rejected
+    honeypot:      true,      // hidden field named hp_field, only bots fill it
+    minSecondsOnForm: 3       // faster than this and the visitor is asked to
+                              // send again, rather than being silently dropped
   },
 
 
@@ -154,7 +159,7 @@ window.LP_CONFIG = {
      no dashes. UAE example: 971501234567
      ---------------------------------------------------------------------- */
   whatsapp: {
-    number: "9715XXXXXXXX",
+    number: "971502647803",
     // {{name}} is replaced with whatever the lead typed into the form.
     message: "Hi, I just requested the Al Ghadeer Parks details on your website. My name is {{name}}. Please send me the floor plans, the payment plan and the available units."
   },

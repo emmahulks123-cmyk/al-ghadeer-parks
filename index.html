@@ -162,10 +162,13 @@
               <span class="field__error" data-error>Please choose a timeline.</span>
             </div>
 
-            <!-- Honeypot. Hidden from people. Leave this exactly as it is. -->
+            <!-- Honeypot. Invisible to people, only bots fill it in.
+                 Do not rename this field and do not give it a real world name
+                 like "company", or browser autofill will fill it and the
+                 visitor's genuine enquiry will be thrown away. -->
             <div class="hp-field" aria-hidden="true">
-              <label for="h-company">Company</label>
-              <input type="text" id="h-company" name="company" tabindex="-1" autocomplete="off">
+              <label for="h-hp">Leave this field empty</label>
+              <input type="text" id="h-hp" name="hp_field" tabindex="-1" autocomplete="off">
             </div>
 
             <button type="submit" class="btn btn--primary btn--block btn--lg form__submit">
@@ -177,7 +180,9 @@
 
             <p class="form__consent">
               We reply on WhatsApp, usually within minutes. No spam, and you can
-              ask us to stop at any time.
+              ask us to stop at any time. Protected by reCAPTCHA, so the
+              Google <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Privacy Policy</a>
+              and <a href="https://policies.google.com/terms" rel="noopener" target="_blank">Terms</a> apply.
             </p>
           </form>
         </div>
@@ -464,9 +469,10 @@
               <span class="field__error" data-error>Please choose a timeline.</span>
             </div>
 
+            <!-- Honeypot. See the note on the hero form above. -->
             <div class="hp-field" aria-hidden="true">
-              <label for="c-company">Company</label>
-              <input type="text" id="c-company" name="company" tabindex="-1" autocomplete="off">
+              <label for="c-hp">Leave this field empty</label>
+              <input type="text" id="c-hp" name="hp_field" tabindex="-1" autocomplete="off">
             </div>
 
             <button type="submit" class="btn btn--primary btn--block btn--lg form__submit">
@@ -478,7 +484,9 @@
 
             <p class="form__consent">
               We reply on WhatsApp, usually within minutes. No spam, and you can
-              ask us to stop at any time.
+              ask us to stop at any time. Protected by reCAPTCHA, so the
+              Google <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Privacy Policy</a>
+              and <a href="https://policies.google.com/terms" rel="noopener" target="_blank">Terms</a> apply.
             </p>
           </form>
         </div>
