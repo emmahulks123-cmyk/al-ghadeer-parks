@@ -393,16 +393,33 @@
     var digits = form.elements.phone.value.replace(/\D/g, "").replace(/^0+/, "");
     var eventId = (window.LP_TRACK && window.LP_TRACK.newEventId) ? window.LP_TRACK.newEventId() : "";
 
+    /* Split the name so Go High Level can map First Name and Last Name
+       directly, instead of you having to do it with a formatter step. */
+    var fullName = form.elements.name.value.trim().replace(/\s+/g, " ");
+    var nameParts = fullName.split(" ");
+    var firstName = nameParts[0] || "";
+    var lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+
+    var timelineLabel = form.elements.timeline.options[form.elements.timeline.selectedIndex].text;
+
     return {
-      name:        form.elements.name.value.trim(),
+      name:        fullName,
+      full_name:   fullName,
+      first_name:  firstName,
+      last_name:   lastName,
       email:       form.elements.email.value.trim(),
       phone:       code + digits,
       phone_local: digits,
       country_code: code,
       timeline:    form.elements.timeline.value,
-      timeline_label: form.elements.timeline.options[form.elements.timeline.selectedIndex].text,
+      timeline_label: timelineLabel,
       form_location: form.elements.form_location ? form.elements.form_location.value : "",
       project:     "Al Ghadeer Parks",
+      source:      "Al Ghadeer Parks Landing Page",
+      /* A ready made line for the Go High Level contact note or opportunity */
+      notes:       "Al Ghadeer Parks enquiry. Buying timeline: " + timelineLabel +
+                   ". Submitted from the " + (form.elements.form_location ? form.elements.form_location.value : "") +
+                   " form.",
       page_url:    window.location.href,
       submitted_at: new Date().toISOString(),
       event_id:    (cfg.meta && cfg.meta.sendEventId) ? eventId : "",
@@ -458,30 +475,55 @@
       });
   }
 
-  /* ---------- Zapier ------------------------------------------------------- */
+  /* ---------- Zapier ------------------------------------------------------
+     Sent as application/x-www-form-urlencoded, on purpose.
+
+     A POST carrying "Content-Type: application/json" is not a CORS simple
+     request, so the browser first sends an OPTIONS preflight. Zapier's catch
+     hook answers that preflight without allowing the content-type header, so
+     the real POST is never sent and the console shows:
+
+       "Request header field content-type is not allowed by
+        Access-Control-Allow-Headers in preflight response"
+
+     Form encoding is one of the three content types the CORS spec treats as
+     simple, so there is no preflight at all. It also means Zapier parses the
+     body into individual named fields, which is what you map in Go High Level,
+     instead of dropping the whole payload into a single "querystring" value.
+
+     Notes on the options used here:
+       mode "no-cors"  we never read Zapier's reply, and asking to read it
+                       would fail on the missing Access-Control-Allow-Origin
+                       header and trigger a retry, which would duplicate leads
+       keepalive       the page navigates to the thank you page immediately
+                       after this call, and keepalive stops the browser
+                       cancelling the request mid flight
+       no headers set  passing URLSearchParams makes the browser set the
+                       correct content type itself. Setting it by hand is what
+                       caused the original failure.
+  -------------------------------------------------------------------------- */
   function sendZapier(lead) {
     var z = cfg.zapier || {};
     if (!z.enabled || !z.webhookUrl || z.webhookUrl.indexOf("YOUR_") !== -1) {
       return Promise.resolve("skipped");
     }
 
+    var body = new URLSearchParams();
+    Object.keys(lead).forEach(function (key) {
+      var value = lead[key];
+      body.append(key, value === null || value === undefined ? "" : String(value));
+    });
+
     return fetch(z.webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(lead)
+      mode: "no-cors",
+      keepalive: true,
+      body: body
     })
-      .then(function (res) { return res.ok ? "sent" : "failed"; })
-      .catch(function () {
-        /* Some browsers block the response for cross origin webhooks. Fire the
-           request again without reading the reply so the lead still lands. */
-        return fetch(z.webhookUrl, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain" },
-          body: JSON.stringify(lead)
-        })
-          .then(function () { return "sent"; })
-          .catch(function () { return "failed"; });
+      .then(function () { return "sent"; })
+      .catch(function (err) {
+        console.error("[form] Zapier webhook failed:", err);
+        return "failed";
       });
   }
 

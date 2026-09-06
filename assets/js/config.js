@@ -49,9 +49,9 @@ window.LP_CONFIG = {
      ---------------------------------------------------------------------- */
   emailjs: {
     enabled:    true,
-    publicKey:  "YOUR_EMAILJS_PUBLIC_KEY",   // e.g. "u1AbCdEfGhIjKlMnO"
-    serviceId:  "YOUR_EMAILJS_SERVICE_ID",   // e.g. "service_ab12cde"
-    templateId: "YOUR_EMAILJS_TEMPLATE_ID",  // e.g. "template_xy34fgh"
+    publicKey:  "WVHa4a0KSVco3OG1_",
+    serviceId:  "service_eb4npk8",
+    templateId: "template_c9r6mjs",
     toEmail:    "emmahulks123@gmail.com"     // where leads are delivered
   },
 
@@ -71,7 +71,7 @@ window.LP_CONFIG = {
      ---------------------------------------------------------------------- */
   zapier: {
     enabled:    true,
-    webhookUrl: "https://hooks.zapier.com/hooks/catch/YOUR_ID/YOUR_HOOK/"
+    webhookUrl: "https://hooks.zapier.com/hooks/catch/17940745/4hc3l78/"
   },
 
 
