@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+
+<!-- ============================ EDIT: TITLE ============================ -->
+<title>Thank you | Al Ghadeer Parks</title>
+<meta name="description" content="Your request has been received. We are sending the Al Ghadeer Parks details to your WhatsApp now.">
+<!-- IMPORTANT: this page must stay out of Google, it is a conversion page only -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/tracking.js"></script>
+</head>
+
+<body class="ty">
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__name">Al Ghadeer Parks</span>
+      <span class="brand__by">by Aldar</span>
+    </a>
+  </div>
+</header>
+
+<main class="ty__main">
+  <div class="wrap">
+    <div class="ty__card">
+
+      <div class="ty__mark">
+        <i class="ph ph-check" aria-hidden="true" style="font-size:30px"></i>
+      </div>
+
+      <!-- EDIT: the confirmation message -->
+      <h1 class="ty__title">You are on the list<span data-first-name></span>.</h1>
+
+      <p class="ty__lead">
+        Your details are with our team. We are putting together the
+        <strong>floor plans, the payment plan and what is still available</strong>
+        and sending it to your WhatsApp now.
+      </p>
+
+      <div class="ty__actions">
+        <a class="btn btn--wa btn--lg" href="#" data-whatsapp>
+          <i class="ph ph-whatsapp-logo" aria-hidden="true" style="font-size:18px"></i>
+          <span>Open WhatsApp Now</span>
+        </a>
+      </div>
+
+      <p class="ty__count" data-countdown hidden>
+        Opening WhatsApp in <b data-seconds>6</b> seconds
+      </p>
+
+      <!-- EDIT: what you actually do next for the lead -->
+      <div class="ty__next">
+        <div>
+          <h3>We check availability</h3>
+          <p>Plot by plot, so you are not sent a layout that has already gone.</p>
+        </div>
+        <div>
+          <h3>You get the real numbers</h3>
+          <p>Full payment plan, service charges and the total cost, in writing.</p>
+        </div>
+        <div>
+          <h3>You decide, with no pressure</h3>
+          <p>Ask anything on WhatsApp. Book a viewing only if it makes sense to you.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="ty__foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Your Company Name</span>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   THANK YOU PAGE
+   --------------------------------------------------------------------------
+   This page does the single most important job in the whole funnel: it tells
+   Meta that a real lead happened. Because it only ever loads after a valid
+   submission, the "Lead" event it fires is a clean conversion signal you can
+   optimise campaigns against, which is exactly what Click to WhatsApp could
+   never give you.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var cfg = window.LP_CONFIG || {};
+  var behaviour = cfg.behaviour || {};
+  var wa = cfg.whatsapp || {};
+
+  var lead = {};
+  try { lead = JSON.parse(sessionStorage.getItem("lp_lead") || "{}"); } catch (e) {}
+
+  /* ---------- 1. Fire the Meta conversion -------------------------------- */
+  if (window.LP_TRACK) {
+    window.LP_TRACK.lead(lead.event_id || "", {
+      content_name: "Al Ghadeer Parks",
+      content_category: "Off Plan Townhouse"
+    });
+  }
+
+  /* ---------- 2. Personalise ---------------------------------------------- */
+  var firstName = (lead.name || "").trim().split(/\s+/)[0] || "";
+  if (firstName) {
+    var slot = document.querySelector("[data-first-name]");
+    if (slot) slot.textContent = ", " + firstName;
+  }
+
+  var yearEl = document.querySelector("[data-year]");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- 3. Build the WhatsApp link ---------------------------------- */
+  var btn = document.querySelector("[data-whatsapp]");
+  var number = String(wa.number || "").replace(/\D/g, "");
+  var configured = number && number.indexOf("5XXXXXXXX") === -1 && number.length > 8;
+
+  var waUrl = "";
+  if (configured) {
+    var text = String(wa.message || "Hi, I just requested the Al Ghadeer Parks details.")
+                 .replace("{{name}}", lead.name || "");
+    waUrl = "https://wa.me/" + number + "?text=" + encodeURIComponent(text);
+    if (btn) btn.setAttribute("href", waUrl);
+  } else if (btn) {
+    // Number not set yet. Do not send anyone to a broken link.
+    btn.setAttribute("href", "index.html");
+    btn.querySelector("span").textContent = "Back to the Project";
+    console.warn("[thank-you] Set whatsapp.number in assets/js/config.js");
+  }
+
+  /* ---------- 4. Optional auto redirect ----------------------------------- */
+  var seconds = Number(behaviour.autoRedirectSeconds);
+  if (configured && seconds > 0) {
+    var counter = document.querySelector("[data-countdown]");
+    var out = document.querySelector("[data-seconds]");
+    var left = seconds;
+
+    if (counter) counter.hidden = false;
+    if (out) out.textContent = String(left);
+
+    var timer = window.setInterval(function () {
+      left -= 1;
+      if (out) out.textContent = String(Math.max(left, 0));
+      if (left <= 0) {
+        window.clearInterval(timer);
+        window.location.href = waUrl;
+      }
+    }, 1000);
+
+    // If the visitor taps the button first, stop the countdown.
+    if (btn) btn.addEventListener("click", function () { window.clearInterval(timer); });
+  }
+})();
+</script>
+
+<noscript>
+  <div class="wrap" style="padding:24px 0;color:#B6C6BC">
+    Your request has been received. Please message us on WhatsApp to get the details.
+  </div>
+</noscript>
+
+</body>
+</html>

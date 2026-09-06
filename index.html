@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+
+<!-- ============================ EDIT: PAGE TITLE + DESCRIPTION ============================ -->
+<title>Al Ghadeer Parks by Aldar | Townhouses from AED 95,000 booking</title>
+<meta name="description" content="Own a townhouse for the price of an apartment at Al Ghadeer Parks by Aldar. Book with AED 95,000. Private garden and double car parking in an established community.">
+<meta name="robots" content="index, follow">
+
+<!-- Social share card. Replace the image URL with your own hosted image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Own a townhouse for the price of an apartment">
+<meta property="og:description" content="Al Ghadeer Parks by Aldar. Book with AED 95,000. Private garden and double parking.">
+<meta property="og:image" content="assets/img/hero.jpg">
+<!-- ======================================================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Configuration. Everything you need to set up lives in this one file. -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/tracking.js"></script>
+</head>
+
+<body>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="#top">
+      <!-- EDIT: project name and developer -->
+      <span class="brand__name">Al Ghadeer Parks</span>
+      <span class="brand__by">by Aldar</span>
+    </a>
+    <a class="btn btn--primary" href="#lead-form" data-scroll-to-form>Get the Price List</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ==========================================================================
+     HERO
+     Offer on the left, lead form on the right.
+     Flip the sides with behaviour.heroFormSide in assets/js/config.js
+     ========================================================================== -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="assets/img/hero.jpg" alt=""
+         data-img-label="Hero shot: wide view of the townhouses or the community"
+         data-demo-seed="alghadeer-community-aerial" data-demo-size="1920/1280"
+         fetchpriority="high" decoding="async">
+  </div>
+
+  <div class="wrap hero__inner">
+    <div class="hero__grid" data-hero-grid>
+
+      <!-- ---------- OFFER ---------- -->
+      <div class="hero__copy">
+        <!-- EDIT: everything in this block is free text -->
+        <span class="hero__eyebrow">Al Ghadeer Parks by Aldar</span>
+
+        <h1 class="hero__title">
+          Own a townhouse for the<br class="br-md">
+          <em>price of an apartment.</em>
+        </h1>
+
+        <p class="hero__sub">
+          A private garden, double car parking and a community that is already
+          built, lived in and growing. Ten minutes from Dubai South.
+        </p>
+
+        <dl class="hero__facts">
+          <div class="hero__fact">
+            <dt>Book from</dt>
+            <dd>95,000<span>AED to reserve</span></dd>
+          </div>
+          <div class="hero__fact">
+            <dt>Parking</dt>
+            <dd>2 Cars<span>Every townhouse</span></dd>
+          </div>
+          <div class="hero__fact">
+            <dt>Outdoor</dt>
+            <dd>Garden<span>Private, yours</span></dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- ---------- LEAD FORM ---------- -->
+      <div class="hero__form">
+        <div class="formcard" id="lead-form">
+          <div class="formcard__head">
+            <!-- EDIT: form heading and the line under it -->
+            <h2 class="formcard__title">Get the full details</h2>
+            <p class="formcard__note">
+              Floor plans, the payment plan and what is actually available this
+              week. Sent straight to your WhatsApp.
+            </p>
+          </div>
+
+          <form data-lead-form novalidate>
+            <input type="hidden" name="form_location" value="hero">
+
+            <div class="field">
+              <label for="h-name">Full name <span class="req">*</span></label>
+              <input type="text" id="h-name" name="name" autocomplete="name"
+                     placeholder="Your name" required>
+              <span class="field__error" data-error>Please enter your name.</span>
+            </div>
+
+            <div class="field field--phone">
+              <label for="h-phone">WhatsApp number <span class="req">*</span></label>
+              <div class="phone-group">
+                <select id="h-code" name="country_code" aria-label="Country code">
+                  <!-- EDIT: add or reorder country codes as you need -->
+                  <option value="+971" selected>+971</option>
+                  <option value="+966">+966</option>
+                  <option value="+965">+965</option>
+                  <option value="+974">+974</option>
+                  <option value="+973">+973</option>
+                  <option value="+968">+968</option>
+                  <option value="+91">+91</option>
+                  <option value="+92">+92</option>
+                  <option value="+44">+44</option>
+                  <option value="+1">+1</option>
+                  <option value="+7">+7</option>
+                  <option value="+20">+20</option>
+                  <option value="+234">+234</option>
+                  <option value="+27">+27</option>
+                  <option value="+254">+254</option>
+                  <option value="+63">+63</option>
+                  <option value="+86">+86</option>
+                </select>
+                <input type="tel" id="h-phone" name="phone" autocomplete="tel-national"
+                       inputmode="numeric" placeholder="50 123 4567" required>
+              </div>
+              <span class="field__error" data-error>Please enter a valid number.</span>
+            </div>
+
+            <div class="field">
+              <label for="h-email">Email <span class="req">*</span></label>
+              <input type="email" id="h-email" name="email" autocomplete="email"
+                     placeholder="you@email.com" required>
+              <span class="field__error" data-error>Please enter a valid email address.</span>
+            </div>
+
+            <!-- The single qualifying question. Keep it to one. -->
+            <div class="field">
+              <label for="h-timeline">When are you looking to buy? <span class="req">*</span></label>
+              <select id="h-timeline" name="timeline" required>
+                <option value="" disabled selected>Select a timeline</option>
+                <option value="Ready now">Ready to buy now</option>
+                <option value="1 to 3 months">In the next 1 to 3 months</option>
+                <option value="3 to 6 months">In 3 to 6 months</option>
+                <option value="Researching">Still researching</option>
+              </select>
+              <span class="field__error" data-error>Please choose a timeline.</span>
+            </div>
+
+            <!-- Honeypot. Hidden from people. Leave this exactly as it is. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="h-company">Company</label>
+              <input type="text" id="h-company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block btn--lg form__submit">
+              <span class="btn__label">Get the Price List</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="form__status" data-status role="status" aria-live="polite"></p>
+
+            <p class="form__consent">
+              We reply on WhatsApp, usually within minutes. No spam, and you can
+              ask us to stop at any time.
+            </p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     THE OFFER
+     ========================================================================== -->
+<section class="section" id="offer">
+  <div class="wrap">
+    <div class="offer__grid">
+
+      <div class="offer__media reveal">
+        <img src="assets/img/offer.jpg" alt="Townhouse at Al Ghadeer Parks"
+             data-img-label="The townhouse you are leading with. Exterior or front elevation."
+             data-demo-seed="alghadeer-townhouse-front" data-demo-size="1000/750"
+             loading="lazy" decoding="async">
+      </div>
+
+      <div class="reveal" data-delay="1">
+        <div class="s-head s-head--wide" style="margin-bottom:0">
+          <span class="eyebrow">The offer</span>
+          <!-- EDIT: the offer headline and the paragraph under it -->
+          <h2 class="s-title">Three bedrooms, two floors, one front door that is yours.</h2>
+          <p class="s-lead">
+            Apartment money in most of Dubai buys you a floor in a tower with a
+            shared wall and a single parking bay. Here it buys you a whole house.
+          </p>
+        </div>
+
+        <ol class="offer__list">
+          <li class="offer__item">
+            <span class="offer__num">01</span>
+            <div>
+              <h3>AED 95,000 to book</h3>
+              <p>That is the whole barrier to entry. The rest is spread across
+                 construction on a plan built for end users, not flippers.</p>
+            </div>
+          </li>
+          <li class="offer__item">
+            <span class="offer__num">02</span>
+            <div>
+              <h3>Parking for two cars</h3>
+              <p>Not one bay you fight over. Two, on your own driveway, which is
+                 close to unheard of at this price anywhere near Dubai.</p>
+            </div>
+          </li>
+          <li class="offer__item">
+            <span class="offer__num">03</span>
+            <div>
+              <h3>A garden, not a balcony</h3>
+              <p>Private outdoor space behind your own gate. Room for a table,
+                 a barbecue, a trampoline, whatever your family actually uses.</p>
+            </div>
+          </li>
+          <li class="offer__item">
+            <span class="offer__num">04</span>
+            <div>
+              <h3>A community that already exists</h3>
+              <p>Al Ghadeer is not a render. Shops, schools and neighbours are
+                 already there, so you are buying into something proven.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     GALLERY
+     Mobile: swipe. Desktop: bento grid.
+     To change a photo, replace the file in assets/img/ with the same name.
+     ========================================================================== -->
+<section class="section section--tint" id="gallery">
+  <div class="wrap">
+    <div class="s-head reveal">
+      <!-- EDIT -->
+      <h2 class="s-title">The community, as it stands today</h2>
+      <p class="s-lead">
+        Green space you can walk to, pools you can reach on foot, and streets
+        that were finished years ago.
+      </p>
+    </div>
+
+    <div class="gallery reveal" data-delay="1">
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-1.jpg" alt="Townhouse exteriors at Al Ghadeer"
+             data-img-label="Townhouse exterior, street facing" data-demo-seed="alghadeer-g1" data-demo-size="900/700" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-2.jpg" alt="Living room interior"
+             data-img-label="Living room interior" data-demo-seed="alghadeer-g2" data-demo-size="900/500" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-3.jpg" alt="Landscaped park"
+             data-img-label="Park or landscaped green space" data-demo-seed="alghadeer-g3" data-demo-size="600/600" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-4.jpg" alt="Community swimming pool"
+             data-img-label="Swimming pool" data-demo-seed="alghadeer-g4" data-demo-size="600/600" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-5.jpg" alt="Kitchen and dining area"
+             data-img-label="Kitchen or dining interior" data-demo-seed="alghadeer-g5" data-demo-size="600/900" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-6.jpg" alt="Children's play area"
+             data-img-label="Kids play area or splash pad" data-demo-seed="alghadeer-g6" data-demo-size="900/500" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-7.jpg" alt="Street view in the community"
+             data-img-label="Street view or aerial of the community" data-demo-seed="alghadeer-g7" data-demo-size="600/600" loading="lazy" decoding="async">
+      </figure>
+      <figure class="gallery__item">
+        <img src="assets/img/gallery-8.jpg" alt="Private garden and terrace"
+             data-img-label="Private garden or terrace" data-demo-seed="alghadeer-g8" data-demo-size="900/500" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+    <p class="gallery__hint">Swipe to see more</p>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     AMENITIES  (deliberately light on detail)
+     ========================================================================== -->
+<section class="section section--deep" id="amenities">
+  <div class="wrap">
+    <div class="s-head reveal">
+      <!-- EDIT -->
+      <h2 class="s-title">What is on your doorstep</h2>
+      <p class="s-lead">
+        The short version. The full amenity list, the masterplan and the exact
+        walking distances come through on WhatsApp.
+      </p>
+    </div>
+
+    <ul class="amen reveal" data-delay="1">
+      <!-- EDIT: change the label text, or swap the icon name after "ph ph-" -->
+      <li><i class="ph ph-swimming-pool" aria-hidden="true"></i><span>Pools and splash pad</span></li>
+      <li><i class="ph ph-tree" aria-hidden="true"></i><span>Landscaped parks</span></li>
+      <li><i class="ph ph-plant" aria-hidden="true"></i><span>Private gardens</span></li>
+      <li><i class="ph ph-car" aria-hidden="true"></i><span>Double car parking</span></li>
+      <li><i class="ph ph-basketball" aria-hidden="true"></i><span>Sports courts</span></li>
+      <li><i class="ph ph-person-simple-walk" aria-hidden="true"></i><span>Shaded walkways</span></li>
+      <li><i class="ph ph-baby" aria-hidden="true"></i><span>Kids play areas</span></li>
+      <li><i class="ph ph-buildings" aria-hidden="true"></i><span>Community centre</span></li>
+    </ul>
+
+    <p class="amen__after reveal" data-delay="2">
+      Al Ghadeer is a designated investment zone, which means all nationalities
+      can buy freehold here.
+    </p>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     LOCATION
+     ========================================================================== -->
+<section class="section" id="location">
+  <div class="wrap">
+    <div class="loc__grid">
+
+      <div class="reveal">
+        <div class="s-head s-head--wide" style="margin-bottom:0">
+          <!-- EDIT -->
+          <h2 class="s-title">Closer to Dubai South than most of Dubai is.</h2>
+          <p class="s-lead">
+            Al Ghadeer sits on the Abu Dhabi side of the border, minutes from Al
+            Maktoum Airport and Expo City, with Abu Dhabi pricing.
+          </p>
+        </div>
+
+        <!-- EDIT: check these drive times against your own sources before launch -->
+        <ul class="drives">
+          <li><strong>Dubai South</strong><span>10 min</span></li>
+          <li><strong>Al Maktoum Airport</strong><span>12 min</span></li>
+          <li><strong>Expo City Dubai</strong><span>15 min</span></li>
+          <li><strong>Dubai Marina</strong><span>35 min</span></li>
+          <li><strong>Downtown Dubai</strong><span>40 min</span></li>
+          <li><strong>Abu Dhabi city</strong><span>45 min</span></li>
+        </ul>
+        <p class="footer__legal" style="margin-top:14px">Approximate driving times in normal traffic.</p>
+      </div>
+
+      <div class="loc__media reveal" data-delay="1">
+        <img src="assets/img/location.jpg" alt="Al Ghadeer location and masterplan"
+             data-img-label="Map, masterplan or aerial context shot"
+             data-demo-seed="alghadeer-location-aerial" data-demo-size="900/720"
+             loading="lazy" decoding="async">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     CLOSING CTA  (second lead form)
+     ========================================================================== -->
+<section class="section section--deep cta" id="enquire">
+  <div class="wrap">
+    <div class="cta__grid">
+
+      <div class="reveal">
+        <!-- EDIT -->
+        <h2 class="cta__title">Units go in the order the list goes out.</h2>
+        <p class="cta__lead">
+          Tell us your timeline and we will send you what is genuinely available,
+          not a brochure you could have downloaded anywhere.
+        </p>
+        <ul class="cta__points">
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Floor plans and unit sizes for every layout</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>The full payment plan, written out</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Which plots are still open right now</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>A straight answer on service charges and rental returns</span></li>
+        </ul>
+      </div>
+
+      <div class="reveal" data-delay="1">
+        <div class="formcard" id="lead-form-2">
+          <div class="formcard__head">
+            <h2 class="formcard__title">Send me the details</h2>
+            <p class="formcard__note">One question, then we talk on WhatsApp.</p>
+          </div>
+
+          <form data-lead-form novalidate>
+            <input type="hidden" name="form_location" value="closing">
+
+            <div class="field">
+              <label for="c-name">Full name <span class="req">*</span></label>
+              <input type="text" id="c-name" name="name" autocomplete="name" placeholder="Your name" required>
+              <span class="field__error" data-error>Please enter your name.</span>
+            </div>
+
+            <div class="field field--phone">
+              <label for="c-phone">WhatsApp number <span class="req">*</span></label>
+              <div class="phone-group">
+                <select id="c-code" name="country_code" aria-label="Country code">
+                  <option value="+971" selected>+971</option>
+                  <option value="+966">+966</option>
+                  <option value="+965">+965</option>
+                  <option value="+974">+974</option>
+                  <option value="+973">+973</option>
+                  <option value="+968">+968</option>
+                  <option value="+91">+91</option>
+                  <option value="+92">+92</option>
+                  <option value="+44">+44</option>
+                  <option value="+1">+1</option>
+                  <option value="+7">+7</option>
+                  <option value="+20">+20</option>
+                  <option value="+234">+234</option>
+                  <option value="+27">+27</option>
+                  <option value="+254">+254</option>
+                  <option value="+63">+63</option>
+                  <option value="+86">+86</option>
+                </select>
+                <input type="tel" id="c-phone" name="phone" autocomplete="tel-national"
+                       inputmode="numeric" placeholder="50 123 4567" required>
+              </div>
+              <span class="field__error" data-error>Please enter a valid number.</span>
+            </div>
+
+            <div class="field">
+              <label for="c-email">Email <span class="req">*</span></label>
+              <input type="email" id="c-email" name="email" autocomplete="email" placeholder="you@email.com" required>
+              <span class="field__error" data-error>Please enter a valid email address.</span>
+            </div>
+
+            <div class="field">
+              <label for="c-timeline">When are you looking to buy? <span class="req">*</span></label>
+              <select id="c-timeline" name="timeline" required>
+                <option value="" disabled selected>Select a timeline</option>
+                <option value="Ready now">Ready to buy now</option>
+                <option value="1 to 3 months">In the next 1 to 3 months</option>
+                <option value="3 to 6 months">In 3 to 6 months</option>
+                <option value="Researching">Still researching</option>
+              </select>
+              <span class="field__error" data-error>Please choose a timeline.</span>
+            </div>
+
+            <div class="hp-field" aria-hidden="true">
+              <label for="c-company">Company</label>
+              <input type="text" id="c-company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block btn--lg form__submit">
+              <span class="btn__label">Get the Price List</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="form__status" data-status role="status" aria-live="polite"></p>
+
+            <p class="form__consent">
+              We reply on WhatsApp, usually within minutes. No spam, and you can
+              ask us to stop at any time.
+            </p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="brand" href="#top">
+          <span class="brand__name">Al Ghadeer Parks</span>
+          <span class="brand__by">by Aldar</span>
+        </a>
+        <p class="footer__tag" style="margin-top:8px">
+          Townhouses and villas in Al Ghadeer, on the Abu Dhabi side of the
+          Abu Dhabi to Dubai border.
+        </p>
+      </div>
+      <a class="btn btn--ghost" href="#lead-form" data-scroll-to-form>Get the Price List</a>
+    </div>
+
+    <!-- EDIT: put your own agency name, licence number and contact details here -->
+    <p class="footer__legal">
+      This page is operated by an independent property consultancy and is not the
+      official website of the developer. Al Ghadeer Parks and Aldar are the
+      property of their respective owners. Prices, payment terms, availability,
+      areas and completion dates are indicative, subject to change and subject to
+      the developer's terms. Images may include representations of the wider
+      Al Ghadeer community. Nothing on this page forms part of a contract or an
+      offer. Please verify all details before making any commitment.
+    </p>
+
+    <div class="footer__meta">
+      <span>&copy; <span data-year>2026</span> Your Company Name</span>
+      <span>ORN 00000</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Mobile only. Turn off with behaviour.mobileStickyBar in config.js -->
+<div class="stickybar" data-sticky-bar>
+  <a class="btn btn--primary btn--block" href="#lead-form" data-scroll-to-form>Get the Price List</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
