@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bramwell &amp; Partners | Boutique Real Estate Advisory, Dubai &amp; Abu Dhabi</title>
+<meta name="description" content="A boutique real estate advisory for investors in Dubai and Abu Dhabi. We start with the figures that survive scrutiny, not the ones on the brochure.">
+<meta name="theme-color" content="#191712">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bramwell &amp; Partners | Boutique Real Estate Advisory">
+<meta property="og:description" content="A boutique advisory for investors in Dubai and Abu Dhabi. The honest number, the real timeline, the actual risk.">
+<meta property="og:url" content="https://bramwellre.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+
+<style>
+/* ============================================================
+   BRAMWELL & PARTNERS
+   Palette drawn from Gulf dawn light: warm espresso, bone,
+   stone, and a gold used only where it earns its place.
+   ============================================================ */
+:root{
+  --ink:#191712;
+  --ink-2:#221f19;
+  --umber:#2f2a22;
+  --bone:#f6f3ee;
+  --bone-2:#ece7de;
+  --stone:#8b8680;
+  --stone-2:#a8a29a;
+  --gold:#c9a870;
+  --gold-dim:rgba(201,168,112,.28);
+  --gold-faint:rgba(201,168,112,.12);
+
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --ease:cubic-bezier(.16,.84,.32,1);
+  --ease-soft:cubic-bezier(.4,0,.2,1);
+
+  --gut:clamp(1.5rem,5vw,6rem);
+  --maxw:1320px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--body);
+  font-weight:300;
+  font-size:clamp(.95rem,.9rem + .2vw,1.05rem);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+
+/* fine film grain, keeps large flat fields from looking digital */
+body::after{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection{background:var(--gold);color:var(--ink)}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(2.7rem,1.4rem + 5.6vw,6.4rem);line-height:1.02}
+h2{font-size:clamp(2rem,1.2rem + 3.2vw,4rem);line-height:1.1}
+h3{font-size:clamp(1.35rem,1.1rem + 1vw,1.85rem);line-height:1.25}
+p{margin:0}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.66rem;font-weight:500;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:.9rem;
+}
+.eyebrow::before{content:"";width:clamp(1.5rem,4vw,3.25rem);height:1px;background:var(--gold);opacity:.55;flex:none}
+.eyebrow.center{justify-content:center}
+.eyebrow.center::after{content:"";width:clamp(1.5rem,4vw,3.25rem);height:1px;background:var(--gold);opacity:.55;flex:none}
+
+.lede{font-size:clamp(1.05rem,.98rem + .45vw,1.3rem);line-height:1.65;color:var(--stone-2);font-weight:300}
+.muted{color:var(--stone)}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+section{position:relative;padding-block:clamp(5rem,12vh,10rem);scroll-margin-top:5rem}
+.hero{scroll-margin-top:0}
+
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);border:0;margin:0}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;inset:0 0 auto;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  padding:1.35rem var(--gut);
+  transition:background .5s var(--ease-soft),padding .5s var(--ease-soft),border-color .5s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(25,23,18,.82);
+  backdrop-filter:blur(16px) saturate(1.2);
+  -webkit-backdrop-filter:blur(16px) saturate(1.2);
+  padding-block:.85rem;
+  border-bottom-color:var(--gold-faint);
+}
+.brand{display:flex;flex-direction:column;line-height:1;gap:.4rem}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.2rem;letter-spacing:.02em}
+.brand span{font-family:var(--mono);font-size:.54rem;letter-spacing:.32em;color:var(--stone);text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2.4rem}
+.nav-links a{
+  font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;
+  color:var(--stone-2);position:relative;padding-block:.35rem;transition:color .35s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease);
+}
+.nav-links a:hover{color:var(--bone)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.7rem;
+  padding:.95rem 1.9rem;border:1px solid var(--gold-dim);border-radius:1px;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  color:var(--bone);background:transparent;cursor:pointer;
+  position:relative;overflow:hidden;isolation:isolate;
+  transition:color .5s var(--ease-soft),border-color .5s var(--ease-soft);
+}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--gold);
+  transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease);
+}
+.btn:hover{color:var(--ink);border-color:var(--gold)}
+.btn:hover::before{transform:scaleX(1);transform-origin:left}
+.btn-solid{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn-solid::before{background:var(--bone)}
+.btn-lg{padding:1.15rem 2.6rem;font-size:.75rem}
+
+.menu-btn{display:none;background:none;border:0;cursor:pointer;padding:.5rem;width:44px;height:44px}
+.menu-btn span{display:block;width:22px;height:1px;background:var(--bone);margin:5px auto;transition:transform .4s var(--ease),opacity .3s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ============================================================
+   HERO
+   A drawn Gulf dawn. Sky, haze, a skyline in fine gold line,
+   still water. Everything moves on scroll, nothing shouts.
+   ============================================================ */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding:0;overflow:hidden;
+}
+.scene{position:absolute;inset:0;z-index:0;will-change:transform}
+.sky{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(120% 76% at 50% 100%, rgba(201,168,112,.30) 0%, rgba(201,168,112,.10) 32%, transparent 62%),
+    radial-gradient(90% 58% at 72% 86%, rgba(214,152,92,.22) 0%, transparent 58%),
+    linear-gradient(180deg,#100f0c 0%,#191712 34%,#2b2419 68%,#3d3122 100%);
+}
+.haze{position:absolute;left:-10%;right:-10%;height:38vh;pointer-events:none;will-change:transform}
+.haze-1{bottom:16%;background:linear-gradient(180deg,transparent,rgba(201,168,112,.075),transparent);filter:blur(30px)}
+.haze-2{bottom:2%;background:linear-gradient(180deg,transparent,rgba(224,178,116,.10),transparent);filter:blur(46px)}
+
+.skyline{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:19%;
+  width:min(1700px,150%);height:min(42vh,320px);pointer-events:none;
+  opacity:.9;will-change:transform;
+  /* towers emerge from the haze rather than colliding with the headline */
+  mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 26%,#000 58%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 26%,#000 58%);
+}
+
+/* keeps the words legible over the skyline without darkening the whole frame */
+.text-scrim{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(100deg,rgba(16,15,12,.86) 0%,rgba(16,15,12,.62) 34%,rgba(16,15,12,.18) 58%,transparent 76%);
+}
+@media(max-width:900px){
+  .text-scrim{background:linear-gradient(180deg,rgba(16,15,12,.82) 0%,rgba(16,15,12,.66) 52%,rgba(16,15,12,.28) 78%,transparent 100%)}
+}
+.skyline path,.skyline line,.skyline polyline{
+  fill:none;stroke:var(--gold);stroke-width:1;vector-effect:non-scaling-stroke;
+  stroke-linecap:square;
+}
+.skyline .far{opacity:.26}
+.skyline .mid{opacity:.48}
+.skyline .near{opacity:.78}
+
+.water{
+  position:absolute;inset:auto 0 0;height:19%;
+  background:linear-gradient(180deg,rgba(61,49,34,.9),#171410);
+  border-top:1px solid var(--gold-dim);
+}
+.water::before{
+  content:"";position:absolute;inset:0;opacity:.3;
+  background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(201,168,112,.16) 3px 4px);
+  mask-image:linear-gradient(180deg,#000,transparent 72%);
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 72%);
+}
+
+.motes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.mote{
+  position:absolute;width:2px;height:2px;border-radius:50%;
+  background:var(--gold);opacity:0;
+  animation:drift linear infinite;
+}
+@keyframes drift{
+  0%{opacity:0;transform:translate3d(0,0,0)}
+  12%{opacity:.5}
+  88%{opacity:.35}
+  100%{opacity:0;transform:translate3d(26px,-190px,0)}
+}
+
+.vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(112% 88% at 50% 44%,transparent 42%,rgba(16,15,12,.72) 100%);
+}
+
+.hero-inner{position:relative;z-index:3;width:100%;will-change:transform,opacity}
+.hero-inner .wrap{display:grid;gap:clamp(1.5rem,3vw,2.4rem);max-width:1160px}
+.hero h1{max-width:15ch}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .lede{max-width:56ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.9rem}
+
+.scroll-cue{
+  position:absolute;left:50%;bottom:2.2rem;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:.85rem;
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--stone);
+}
+.scroll-cue i{display:block;width:1px;height:52px;background:linear-gradient(180deg,var(--gold),transparent);overflow:hidden;position:relative}
+.scroll-cue i::after{
+  content:"";position:absolute;inset:0;background:var(--gold);
+  animation:cue 2.6s var(--ease-soft) infinite;
+}
+@keyframes cue{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+.rv-d4{transition-delay:.4s}.rv-d5{transition-delay:.5s}
+
+/* ============================================================
+   PREMISE
+   ============================================================ */
+.premise{background:var(--bone);color:var(--ink)}
+.premise .lede{color:#57524a}
+.premise .eyebrow{color:#9a7b3c}
+.premise .eyebrow::before,.premise .eyebrow::after{background:#9a7b3c}
+.premise-grid{display:grid;grid-template-columns:1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+@media(min-width:900px){.premise-grid{grid-template-columns:1.05fr .95fr}}
+.premise h2{max-width:16ch;color:var(--ink)}
+.premise-copy{display:grid;gap:1.5rem;max-width:60ch}
+.premise-copy p{color:#57524a;font-size:clamp(1rem,.95rem + .25vw,1.12rem)}
+
+.figures{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(25,23,18,.12);margin-top:.5rem}
+.fig{padding:clamp(1.4rem,3vw,2.2rem);position:relative}
+.fig + .fig{border-left:1px solid rgba(25,23,18,.12)}
+.fig b{
+  display:block;font-family:var(--display);font-weight:400;
+  font-size:clamp(2.6rem,1.6rem + 3.6vw,4.6rem);line-height:1;letter-spacing:-.03em;
+  white-space:nowrap;
+}
+.fig.gross b{color:#b3aca1}
+.fig.net b{color:#9a7b3c}
+.fig small{
+  display:block;margin-top:.9rem;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.24em;text-transform:uppercase;color:#8b8680;
+}
+.fig > span{display:block;margin-top:.55rem;font-size:.86rem;color:#6b655c;line-height:1.6}
+
+/* ---------- calculator ---------- */
+.calc{
+  background:var(--ink);color:var(--bone);
+  padding:clamp(1.75rem,4vw,2.75rem);
+  border:1px solid rgba(25,23,18,.14);
+  position:relative;overflow:hidden;
+}
+.calc::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 70% at 100% 0%,rgba(201,168,112,.14),transparent 60%);
+}
+.calc > *{position:relative}
+.calc h3{margin-bottom:.5rem}
+.calc .hint{font-size:.85rem;color:var(--stone);margin-bottom:1.9rem;max-width:44ch}
+
+.slider-row{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.slider-row label{font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.slider-row output{font-family:var(--display);font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem);color:var(--gold);line-height:1;white-space:nowrap}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;cursor:grab;margin:0;
+}
+input[type=range]:active{cursor:grabbing}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:rgba(246,243,238,.22)}
+input[type=range]::-moz-range-track{height:1px;background:rgba(246,243,238,.22)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:15px;height:15px;border-radius:50%;
+  background:var(--gold);margin-top:-7px;border:0;
+  box-shadow:0 0 0 0 rgba(201,168,112,.3);transition:box-shadow .35s,transform .35s var(--ease);
+}
+input[type=range]:hover::-webkit-slider-thumb,input[type=range]:focus-visible::-webkit-slider-thumb{
+  box-shadow:0 0 0 9px rgba(201,168,112,.13);transform:scale(1.12)
+}
+input[type=range]::-moz-range-thumb{
+  width:15px;height:15px;border-radius:50%;background:var(--gold);border:0;
+}
+input[type=range]:focus-visible{outline:none}
+
+.calc-out{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:2rem;
+  background:rgba(246,243,238,.12);border:1px solid rgba(246,243,238,.12);
+}
+.calc-out div{background:var(--ink);padding:1.3rem 1.4rem}
+.calc-out b{
+  display:block;font-family:var(--display);font-weight:400;
+  font-size:clamp(1.3rem,1rem + 1.1vw,1.9rem);
+  line-height:1.05;letter-spacing:-.02em;white-space:nowrap;
+}
+.calc-out .a b{color:var(--stone-2)}
+.calc-out .b b{color:var(--gold)}
+.calc-out small{display:block;margin-top:.7rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)}
+.calc-note{
+  margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(246,243,238,.1);
+  font-size:.8rem;color:var(--stone);line-height:1.7;
+}
+.calc-note strong{color:var(--bone-2);font-weight:500}
+
+/* ============================================================
+   PILLARS
+   ============================================================ */
+.pillars{background:var(--ink-2)}
+.pillar-grid{display:grid;gap:1px;background:var(--gold-faint);border:1px solid var(--gold-faint);margin-top:clamp(2.5rem,6vw,4rem)}
+@media(min-width:860px){.pillar-grid{grid-template-columns:repeat(3,1fr)}}
+.pillar{
+  background:var(--ink-2);padding:clamp(2rem,4vw,3.1rem);
+  display:grid;gap:1.1rem;align-content:start;position:relative;overflow:hidden;
+  transition:background .6s var(--ease-soft);
+}
+.pillar::after{
+  content:"";position:absolute;left:0;top:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease);
+}
+.pillar:hover{background:#262219}
+.pillar:hover::after{transform:scaleX(1)}
+.pillar-n{font-family:var(--mono);font-size:.62rem;letter-spacing:.26em;color:var(--gold);opacity:.75}
+.pillar p{color:var(--stone-2);font-size:.97rem}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process{background:var(--ink)}
+.steps{margin-top:clamp(2.5rem,6vw,4rem);display:grid;gap:0}
+.step{
+  display:grid;gap:1rem 2.5rem;align-items:start;
+  padding-block:clamp(2rem,4vw,2.9rem);
+  border-top:1px solid var(--gold-faint);
+  grid-template-columns:1fr;
+}
+.step:last-child{border-bottom:1px solid var(--gold-faint)}
+@media(min-width:840px){.step{grid-template-columns:auto 1fr 1.15fr;gap:3.5rem}}
+.step-n{
+  font-family:var(--display);font-size:clamp(2.2rem,1.5rem + 2.4vw,3.6rem);
+  line-height:.9;color:var(--gold);opacity:.32;letter-spacing:-.04em;
+  transition:opacity .6s var(--ease-soft);
+}
+.step:hover .step-n{opacity:.85}
+.step h3{align-self:center}
+.step p{color:var(--stone-2);font-size:.97rem;max-width:52ch}
+
+/* ============================================================
+   DELIVERABLE / WHAT YOU RECEIVE
+   ============================================================ */
+.file{background:var(--bone);color:var(--ink)}
+.file .eyebrow{color:#9a7b3c}
+.file .eyebrow::before,.file .eyebrow::after{background:#9a7b3c}
+.file h2{color:var(--ink);max-width:18ch}
+.file .lede{color:#57524a;max-width:58ch}
+.file-grid{display:grid;gap:1px;background:rgba(25,23,18,.12);border:1px solid rgba(25,23,18,.12);margin-top:clamp(2.5rem,6vw,3.75rem)}
+@media(min-width:700px){.file-grid{grid-template-columns:1fr 1fr}}
+.file-item{background:var(--bone);padding:clamp(1.5rem,3vw,2.25rem);display:grid;gap:.7rem;align-content:start}
+.file-item b{font-family:var(--display);font-weight:400;font-size:1.2rem;color:var(--ink);letter-spacing:-.01em}
+.file-item p{color:#6b655c;font-size:.9rem;line-height:1.7}
+.file-item i{
+  font-family:var(--mono);font-style:normal;font-size:.58rem;letter-spacing:.24em;
+  text-transform:uppercase;color:#9a7b3c;
+}
+
+/* ============================================================
+   MARKETS
+   ============================================================ */
+.markets{background:var(--umber)}
+.mk-grid{display:grid;gap:clamp(2.5rem,6vw,5rem);margin-top:clamp(2.5rem,6vw,4rem)}
+@media(min-width:800px){.mk-grid{grid-template-columns:1fr 1fr}}
+.mk h3{color:var(--bone);margin-bottom:.35rem}
+.mk .mk-sub{font-family:var(--mono);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem}
+.mk ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.mk li{
+  padding-block:.95rem;border-top:1px solid rgba(201,168,112,.16);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  font-size:.95rem;color:var(--bone-2);
+  transition:padding-left .5s var(--ease),color .4s;
+}
+.mk li:last-child{border-bottom:1px solid rgba(201,168,112,.16)}
+.mk li:hover{padding-left:.7rem;color:#fff}
+.mk li span{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--stone);white-space:nowrap}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{background:var(--ink)}
+.faq-list{margin-top:clamp(2.5rem,6vw,4rem);max-width:920px}
+.q{border-top:1px solid var(--gold-faint)}
+.q:last-child{border-bottom:1px solid var(--gold-faint)}
+.q button{
+  width:100%;background:none;border:0;cursor:pointer;text-align:left;
+  padding:clamp(1.35rem,3vw,1.85rem) 3rem clamp(1.35rem,3vw,1.85rem) 0;
+  font-family:var(--display);font-size:clamp(1.05rem,.95rem + .55vw,1.4rem);
+  color:var(--bone);position:relative;letter-spacing:-.01em;line-height:1.35;
+  transition:color .4s;
+}
+.q button:hover{color:var(--gold)}
+.q button::after,.q button::before{
+  content:"";position:absolute;right:.35rem;top:50%;background:var(--gold);
+  transition:transform .5s var(--ease),opacity .4s;
+}
+.q button::before{width:14px;height:1px;transform:translateY(-50%)}
+.q button::after{width:1px;height:14px;right:.85rem;transform:translateY(-50%) rotate(0deg)}
+.q[data-open="true"] button::after{transform:translateY(-50%) rotate(90deg);opacity:0}
+.q-body{overflow:hidden;height:0;transition:height .6s var(--ease)}
+.q-body div{padding:0 3rem 1.9rem 0;color:var(--stone-2);font-size:.96rem;max-width:70ch;line-height:1.8}
+
+/* ============================================================
+   CTA + FORM
+   ============================================================ */
+.cta{background:var(--bone);color:var(--ink);overflow:hidden}
+.cta .eyebrow{color:#9a7b3c}
+.cta .eyebrow::before,.cta .eyebrow::after{background:#9a7b3c}
+.cta h2{color:var(--ink);max-width:15ch}
+.cta .lede{color:#57524a;max-width:52ch}
+.cta-grid{display:grid;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+@media(min-width:940px){.cta-grid{grid-template-columns:.9fr 1.1fr}}
+
+.contact-lines{display:grid;gap:1.5rem;margin-top:2.5rem}
+.cl{display:grid;gap:.4rem}
+.cl i{font-family:var(--mono);font-style:normal;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:#9a7b3c}
+.cl a,.cl p{font-size:1rem;color:var(--ink);transition:color .35s}
+.cl a:hover{color:#9a7b3c}
+
+form{display:grid;gap:1.35rem}
+.f2{display:grid;gap:1.35rem}
+@media(min-width:560px){.f2{grid-template-columns:1fr 1fr}}
+.field{display:grid;gap:.5rem;position:relative}
+.field label{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:#8b8680}
+.field input,.field select,.field textarea{
+  width:100%;background:transparent;border:0;border-bottom:1px solid rgba(25,23,18,.22);
+  padding:.75rem 0;font-size:.98rem;color:var(--ink);font-weight:300;border-radius:0;
+  transition:border-color .45s var(--ease-soft);
+}
+.field select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238b8680' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .2rem center;
+}
+.field textarea{resize:vertical;min-height:104px;line-height:1.7}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:#9a7b3c}
+.field input::placeholder,.field textarea::placeholder{color:#b3aca1}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;margin-top:.6rem}
+.form-foot .btn{border-color:rgba(25,23,18,.3);color:var(--ink)}
+.form-foot .btn::before{background:var(--ink)}
+.form-foot .btn:hover{color:var(--bone);border-color:var(--ink)}
+.privacy{font-size:.76rem;color:#8b8680;max-width:30ch;line-height:1.6}
+
+.sent{
+  display:none;border:1px solid #9a7b3c;padding:clamp(1.75rem,4vw,2.5rem);
+  background:rgba(154,123,60,.05);
+}
+.sent b{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--ink);margin-bottom:.7rem}
+.sent p{color:#57524a;font-size:.94rem}
+.is-sent form{display:none}
+.is-sent .sent{display:block}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--ink);padding-block:clamp(3.5rem,8vw,5.5rem) 2.5rem}
+.f-top{display:grid;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--gold-faint)}
+@media(min-width:800px){.f-top{grid-template-columns:1.4fr 1fr 1fr;gap:3.5rem}}
+.f-brand b{font-family:var(--display);font-weight:400;font-size:1.5rem;display:block;margin-bottom:.9rem}
+.f-brand p{color:var(--stone);font-size:.9rem;max-width:36ch;line-height:1.75}
+.f-col h4{font-family:var(--mono);font-size:.58rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.35rem}
+.f-col ul{list-style:none;margin:0;padding:0;display:grid;gap:.85rem}
+.f-col a,.f-col li{color:var(--stone-2);font-size:.9rem;transition:color .35s}
+.f-col a:hover{color:var(--gold)}
+.f-bot{
+  display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center;
+  padding-top:2.5rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--stone);
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .nav-links{
+    position:fixed;inset:0;background:rgba(25,23,18,.97);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    flex-direction:column;justify-content:center;gap:2.4rem;
+    opacity:0;visibility:hidden;transition:opacity .5s var(--ease-soft),visibility .5s;
+  }
+  .nav-links.open{opacity:1;visibility:visible}
+  .nav-links a{font-size:1.05rem;letter-spacing:.16em}
+  .nav-links .btn{padding:1rem 2.2rem}
+  .menu-btn{display:block;position:relative;z-index:2}
+  .figures{grid-template-columns:1fr}
+  .fig + .fig{border-left:0;border-top:1px solid rgba(25,23,18,.12)}
+  .calc-out{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .scroll-cue{display:none}
+  .q button{padding-right:2.5rem}
+  .q-body div{padding-right:0}
+  /* one clean stack, and the outline button stays readable over the skyline */
+  .hero-actions{flex-direction:column;align-items:stretch;gap:.85rem}
+  .hero-actions .btn{width:100%}
+  .hero-actions .btn:not(.btn-solid){
+    border-color:rgba(201,168,112,.55);
+    background:rgba(16,15,12,.42);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .form-foot{flex-direction:column;align-items:stretch}
+  .form-foot .btn{width:100%}
+  .privacy{max-width:none}
+  /* label above value, so long dirham figures never break */
+  .slider-row{flex-direction:column;align-items:flex-start;gap:.55rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .mote{display:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Bramwell and Partners, home">
+    <b>Bramwell &amp; Partners</b>
+    <span>Dubai · Abu Dhabi</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#premise">The Premise</a>
+    <a href="#approach">Approach</a>
+    <a href="#process">Process</a>
+    <a href="#markets">Markets</a>
+    <a href="#questions">Questions</a>
+    <a class="btn" href="#consult">Request a consultation</a>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="top">
+  <div class="scene" id="scene" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="haze haze-1" data-depth="0.10"></div>
+    <div class="haze haze-2" data-depth="0.18"></div>
+
+    <svg class="skyline" id="skyline" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <!-- far bank -->
+      <g class="far">
+        <polyline points="0,420 0,336 34,336 34,300 68,300 68,344 112,344 112,282 146,282 146,352 196,352 196,318 232,318 232,420"/>
+        <polyline points="1240,420 1240,330 1276,330 1276,292 1312,292 1312,340 1358,340 1358,300 1396,300 1396,356 1444,356 1444,318 1486,318 1486,420"/>
+        <line x1="232" y1="420" x2="1240" y2="420"/>
+      </g>
+      <!-- mid bank -->
+      <g class="mid">
+        <polyline points="188,420 188,268 226,268 226,214 268,214 268,296 318,296 318,246 356,246 356,420"/>
+        <polyline points="1092,420 1092,252 1132,252 1132,204 1170,204 1170,286 1218,286 1218,236 1258,236 1258,420"/>
+        <polyline points="470,420 470,300 502,300 502,258 536,258 536,320 578,320 578,420"/>
+        <polyline points="1000,420 1000,308 1032,308 1032,262 1064,262 1064,420"/>
+      </g>
+      <!-- near, the spire holds the centre -->
+      <g class="near">
+        <polyline points="356,420 356,232 398,232 398,180 430,180 430,264 470,264 470,420"/>
+        <polyline points="578,420 578,214 616,214 616,158 652,158 652,236 690,236 690,420"/>
+        <path d="M760 420 L760 168 L776 168 L776 118 L790 118 L790 70 L800 12 L810 70 L810 118 L824 118 L824 168 L840 168 L840 420"/>
+        <line x1="800" y1="12" x2="800" y2="70"/>
+        <polyline points="906,420 906,196 944,196 944,146 980,146 980,224 1000,224 1000,420"/>
+        <polyline points="690,420 690,270 726,270 726,228 760,228 760,420"/>
+        <line x1="840" y1="420" x2="840" y2="252"/>
+        <line x1="840" y1="252" x2="876" y2="252"/>
+        <line x1="876" y1="252" x2="876" y2="206"/>
+        <line x1="876" y1="206" x2="906" y2="206"/>
+      </g>
+    </svg>
+
+    <div class="water"></div>
+    <div class="motes" id="motes"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="text-scrim" aria-hidden="true"></div>
+
+  <div class="hero-inner" id="heroInner">
+    <div class="wrap">
+      <p class="eyebrow rv rv-d1">Boutique Real Estate Advisory</p>
+      <h1 class="rv rv-d2">The quiet side of <em>Gulf</em> real estate.</h1>
+      <p class="lede rv rv-d3">Bramwell &amp; Partners advises a small number of investors across Dubai and Abu Dhabi. We begin with the figures that survive scrutiny, not the ones printed on the brochure.</p>
+      <div class="hero-actions rv rv-d4">
+        <a class="btn btn-solid btn-lg" href="#consult">Request a consultation</a>
+        <a class="btn btn-lg" href="#premise">See how we work</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+</section>
+
+<!-- ============================ PREMISE ============================ -->
+<section class="premise" id="premise">
+  <div class="wrap premise-grid">
+    <div>
+      <p class="eyebrow rv">The Premise</p>
+      <h2 class="rv rv-d1" style="margin-top:1.6rem">Most property here is sold on a number that never arrives.</h2>
+
+      <div class="premise-copy rv rv-d2" style="margin-top:2rem">
+        <p>Seven to ten percent. It is the yield on almost every brochure in this market, and it is a gross figure. It is quoted before service charges, before management, before a single week of vacancy, and before the transfer fee.</p>
+        <p>What actually reaches your account is closer to four to six. That gap is not a scandal. It is simply arithmetic that nobody selling you a unit is paid to perform.</p>
+        <p>We would rather you heard it from us at the start than found it in year two.</p>
+      </div>
+
+      <div class="figures rv rv-d3">
+        <div class="fig gross">
+          <b>7.5<span style="font-size:.4em">%</span></b>
+          <small>Quoted gross</small>
+          <span>The headline figure, before any cost of ownership.</span>
+        </div>
+        <div class="fig net">
+          <b>5.4<span style="font-size:.4em">%</span></b>
+          <small>Typical net</small>
+          <span>After service charges, management, and a realistic vacancy allowance.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc rv rv-d2">
+      <h3>Run the arithmetic yourself</h3>
+      <p class="hint">Move the slider. The figures update against the cost assumptions we use on live files.</p>
+
+      <div class="slider-row">
+        <label for="value">Purchase price</label>
+        <output id="valueOut" for="value">AED 4,000,000</output>
+      </div>
+      <input type="range" id="value" min="1500000" max="20000000" step="100000" value="4000000"
+             aria-label="Purchase price in dirhams">
+
+      <div class="slider-row" style="margin-top:1.9rem">
+        <label for="gross">Advertised gross yield</label>
+        <output id="grossOut" for="gross">7.5%</output>
+      </div>
+      <input type="range" id="gross" min="5" max="10" step="0.1" value="7.5"
+             aria-label="Advertised gross yield percentage">
+
+      <div class="calc-out" aria-live="polite">
+        <div class="a">
+          <b id="grossAed">AED 300,000</b>
+          <small>Gross rent, year one</small>
+        </div>
+        <div class="b">
+          <b id="netAed">AED 216,000</b>
+          <small>Net to you, year one</small>
+        </div>
+      </div>
+
+      <p class="calc-note">
+        Deducted: service charges at <strong>1.4%</strong> of value, management at <strong>5%</strong> of rent,
+        and a <strong>5%</strong> vacancy allowance. Your effective net yield is
+        <strong id="netPct">5.4%</strong>. The 4% Dubai Land Department transfer fee sits on top as a one time cost of
+        <strong id="dldFee">AED 160,000</strong>, which is why year one rarely resembles the pitch.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ APPROACH ============================ -->
+<section class="pillars" id="approach">
+  <div class="wrap">
+    <p class="eyebrow rv">The Approach</p>
+    <h2 class="rv rv-d1" style="margin-top:1.6rem;max-width:17ch">Three commitments, held on every file.</h2>
+
+    <div class="pillar-grid">
+      <article class="pillar rv rv-d1">
+        <span class="pillar-n">01</span>
+        <h3>Advisory, not inventory</h3>
+        <p>We are not paid to move a particular building. We are paid to be right about the one you buy. That distinction changes every recommendation we make, and it is the reason our shortlists are short.</p>
+      </article>
+      <article class="pillar rv rv-d2">
+        <span class="pillar-n">02</span>
+        <h3>Access earned over two decades</h3>
+        <p>Our principals have worked Dubai and Abu Dhabi for more than twenty years between them. That opens certain doors. More usefully, it closes the wrong ones early, before your capital is committed.</p>
+      </article>
+      <article class="pillar rv rv-d3">
+        <span class="pillar-n">03</span>
+        <h3>The full file, including the awkward parts</h3>
+        <p>Supply pipeline, handover record, service charge trajectory, exit liquidity. You receive the case against the purchase alongside the case for it. If the case against wins, we say so.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <p class="eyebrow rv">The Process</p>
+    <h2 class="rv rv-d1" style="margin-top:1.6rem;max-width:16ch">Three steps. No viewings until the third.</h2>
+
+    <div class="steps">
+      <article class="step rv">
+        <span class="step-n">01</span>
+        <h3>The brief</h3>
+        <p>One conversation about capital, horizon, residency intentions, and genuine appetite for risk. We do not show you property in this meeting. Understanding what you are solving for comes first, and it saves months later.</p>
+      </article>
+      <article class="step rv rv-d1">
+        <span class="step-n">02</span>
+        <h3>The shortlist</h3>
+        <p>Three to five options, rarely more. Each arrives with the net figure worked through, the supply picture for that specific community, the developer's delivery record, and where the Golden Visa threshold actually falls on your timeline.</p>
+      </article>
+      <article class="step rv rv-d2">
+        <span class="step-n">03</span>
+        <h3>The decision</h3>
+        <p>We view, negotiate, structure, and handle registration. If nothing on the list holds up under the final look, we tell you plainly and we wait. A year of patience has cost our clients far less than a wrong entry.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ THE FILE ============================ -->
+<section class="file" id="file">
+  <div class="wrap">
+    <p class="eyebrow rv">What You Receive</p>
+    <h2 class="rv rv-d1" style="margin-top:1.6rem">Every recommendation arrives with its working shown.</h2>
+    <p class="lede rv rv-d2" style="margin-top:1.5rem">No property reaches your shortlist without these six pieces of work behind it. You keep the file whether you buy through us or not.</p>
+
+    <div class="file-grid">
+      <article class="file-item rv"><i>01</i><b>Net yield model</b><p>Gross rent, service charges at the building's actual rate, management, vacancy, and the transfer fee, laid out year by year rather than summarised into one flattering percentage.</p></article>
+      <article class="file-item rv rv-d1"><i>02</i><b>Community supply pipeline</b><p>What else completes within eighteen months of your handover, and what that volume tends to do to achievable rent. This is the analysis most often skipped.</p></article>
+      <article class="file-item rv rv-d2"><i>03</i><b>Developer delivery record</b><p>Past handover dates against promised dates, escrow standing, and build quality on delivered stock. Track record is the single most reliable predictor in off plan.</p></article>
+      <article class="file-item rv rv-d3"><i>04</i><b>Residency position</b><p>Whether the purchase clears the AED 2 million Golden Visa threshold, and precisely when it does. Off plan and ready property behave very differently here.</p></article>
+      <article class="file-item rv rv-d4"><i>05</i><b>Exit assessment</b><p>Historic resale liquidity in the community, typical days on market, and the buyer profile you would be selling into. Entry is easy in this market. Exit is the part worth planning.</p></article>
+      <article class="file-item rv rv-d5"><i>06</i><b>The case against</b><p>A written argument for not proceeding. If we cannot make one, that is itself a useful signal. Usually we can, and it is the page clients read twice.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MARKETS ============================ -->
+<section class="markets" id="markets">
+  <div class="wrap">
+    <p class="eyebrow rv">Where We Work</p>
+    <h2 class="rv rv-d1" style="margin-top:1.6rem;max-width:20ch">Two markets, covered properly, rather than seven covered loosely.</h2>
+
+    <div class="mk-grid">
+      <div class="mk rv rv-d1">
+        <h3>Dubai</h3>
+        <p class="mk-sub">Freehold · Prime and branded residential</p>
+        <ul>
+          <li>Palm Jumeirah <span>Waterfront</span></li>
+          <li>Emirates Hills <span>Villa</span></li>
+          <li>Downtown Dubai <span>Branded</span></li>
+          <li>Dubai Hills Estate <span>Family</span></li>
+          <li>Jumeirah Bay Island <span>Ultra prime</span></li>
+          <li>Bluewaters Island <span>Waterfront</span></li>
+        </ul>
+      </div>
+      <div class="mk rv rv-d2">
+        <h3>Abu Dhabi</h3>
+        <p class="mk-sub">Investment zones · Cultural district</p>
+        <ul>
+          <li>Saadiyat Island <span>Cultural</span></li>
+          <li>Al Reem Island <span>Yield</span></li>
+          <li>Yas Island <span>Leisure</span></li>
+          <li>Al Raha Beach <span>Waterfront</span></li>
+          <li>Nurai Island <span>Ultra prime</span></li>
+          <li>Masdar City <span>Emerging</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="faq" id="questions">
+  <div class="wrap">
+    <p class="eyebrow rv">Straight Answers</p>
+    <h2 class="rv rv-d1" style="margin-top:1.6rem;max-width:16ch">The questions clients actually ask.</h2>
+
+    <div class="faq-list" id="faq">
+      <div class="q">
+        <button type="button" aria-expanded="false">Is the seven percent yield real?</button>
+        <div class="q-body"><div>As a gross figure, often yes. As money in your account, no. Service charges in prime buildings run high, management takes its share, and no property is occupied fifty two weeks a year. Net yields in the communities we work in typically land between four and six percent. Any adviser quoting you a net figure above that should be asked to show the deductions.</div></div>
+      </div>
+      <div class="q">
+        <button type="button" aria-expanded="false">Does off plan qualify for the Golden Visa straight away?</button>
+        <div class="q-body"><div>It depends entirely on how the purchase is registered. With a DLD registered developer, a twenty percent payment plus the transfer fee, and Oqood registration reflecting the full value, an application can usually proceed at that point. Structured differently, you may wait until completion, which can be two or three years. This is a question of paperwork, not luck, and it is worth settling before you sign anything.</div></div>
+      </div>
+      <div class="q">
+        <button type="button" aria-expanded="false">How do you assess an off plan developer?</button>
+        <div class="q-body"><div>Delivery history first, measured as promised handover dates against actual ones across their completed projects. Then escrow standing, build quality on delivered stock, and how they have behaved in previous soft markets. Established names with long records carry less risk than a developer with one launch and a good render. We will tell you where a project sits on that spectrum.</div></div>
+      </div>
+      <div class="q">
+        <button type="button" aria-expanded="false">Everyone is building. Should supply worry me?</button>
+        <div class="q-body"><div>In specific communities, yes. When several developers complete into the same district within a twelve to eighteen month window, rents soften exactly when your unit comes online, and a yield modelled at eight percent can arrive at five. This is measurable in advance. We map the completion pipeline around any property before it reaches your shortlist.</div></div>
+      </div>
+      <div class="q">
+        <button type="button" aria-expanded="false">How are you paid?</button>
+        <div class="q-body"><div>We are engaged by the buyer, and we disclose every fee in writing before work begins. We do not take developer incentives to steer you toward particular stock. It is a smaller business built this way, and it is the only structure under which our advice is worth anything to you.</div></div>
+      </div>
+      <div class="q">
+        <button type="button" aria-expanded="false">Do you work with investors based outside the UAE?</button>
+        <div class="q-body"><div>Most of our clients are. We handle the process remotely as standard, including power of attorney arrangements, registration, and handover inspection. Many clients complete a purchase before they visit. We would still encourage a visit, though we recognise it is not always practical.</div></div>
+      </div>
+      <div class="q">
+        <button type="button" aria-expanded="false">What size of investment do you work with?</button>
+        <div class="q-body"><div>We are a small team and take on a limited number of files, so we are candid about fit. Most engagements begin around AED 2 million, which is also where the residency threshold sits. If your position is better served elsewhere, we will say so in the first conversation rather than the fifth.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="cta" id="consult">
+  <div class="wrap cta-grid">
+    <div>
+      <p class="eyebrow rv">Begin</p>
+      <h2 class="rv rv-d1" style="margin-top:1.6rem">Start with a conversation, not a viewing.</h2>
+      <p class="lede rv rv-d2" style="margin-top:1.5rem">Tell us what you are solving for. We will tell you honestly whether this market, at this moment, is the right answer for it.</p>
+
+      <div class="contact-lines rv rv-d3">
+        <div class="cl">
+          <i>Email</i>
+          <a href="mailto:enquiries@bramwellre.com">enquiries@bramwellre.com</a>
+        </div>
+        <div class="cl">
+          <i>Offices</i>
+          <p>Dubai and Abu Dhabi, United Arab Emirates</p>
+        </div>
+        <div class="cl">
+          <i>Response</i>
+          <p>Every enquiry is read by a principal, usually within one working day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv rv-d2" id="formWrap">
+      <form id="consultForm" novalidate>
+        <div class="f2">
+          <div class="field">
+            <label for="fname">Name</label>
+            <input type="text" id="fname" name="name" placeholder="Your full name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="f2">
+          <div class="field">
+            <label for="fphone">Phone (optional)</label>
+            <input type="tel" id="fphone" name="phone" placeholder="Including country code" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="frange">Capital range</label>
+            <select id="frange" name="range">
+              <option value="">Please select</option>
+              <option>AED 2m to 5m</option>
+              <option>AED 5m to 10m</option>
+              <option>AED 10m to 25m</option>
+              <option>AED 25m and above</option>
+              <option>Still deciding</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fmsg">What are you solving for?</label>
+          <textarea id="fmsg" name="message" placeholder="Yield, residency, a family home, diversification, or something else entirely."></textarea>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-lg" type="submit">Request a consultation</button>
+          <p class="privacy">Held in confidence. Never shared, never sold, never added to a mailing list.</p>
+        </div>
+      </form>
+
+      <div class="sent" id="sent" role="status">
+        <b>Thank you. Your note is with us.</b>
+        <p>A principal will read it personally and reply within one working day. If the matter is time sensitive, write to us directly at enquiries@bramwellre.com and mark it urgent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <b>Bramwell &amp; Partners</b>
+        <p>A boutique real estate advisory serving investors across Dubai and Abu Dhabi. Founded by principals with more than two decades in these two markets.</p>
+      </div>
+      <div class="f-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#premise">The Premise</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#file">What You Receive</a></li>
+          <li><a href="#markets">Markets</a></li>
+          <li><a href="#questions">Questions</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:enquiries@bramwellre.com">enquiries@bramwellre.com</a></li>
+          <li>Dubai, United Arab Emirates</li>
+          <li>Abu Dhabi, United Arab Emirates</li>
+          <li><a href="#consult">Request a consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>&copy; <span id="yr">2026</span> Bramwell &amp; Partners Real Estate</span>
+      <span>Yield figures are illustrative and not a forecast</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- year ---------- */
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* ---------- nav ---------- */
+  var nav = document.getElementById("nav");
+  var menuBtn = document.getElementById("menuBtn");
+  var navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", function(){
+    var open = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  navLinks.addEventListener("click", function(e){
+    if(e.target.tagName === "A" && navLinks.classList.contains("open")){
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      document.body.style.overflow = "";
+    }
+  });
+
+  /* ---------- smooth anchors ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      var id = a.getAttribute("href");
+      if(id.length < 2) return;
+      var t = document.querySelector(id);
+      if(!t) return;
+      e.preventDefault();
+      t.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+      history.replaceState(null,"",id);
+    });
+  });
+
+  /* ---------- reveals ---------- */
+  var revealed = document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    },{rootMargin:"0px 0px -12% 0px", threshold:.12});
+    revealed.forEach(function(el){ io.observe(el); });
+  } else {
+    revealed.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- drifting motes, whisper level ---------- */
+  if(!reduce){
+    var motes = document.getElementById("motes");
+    var frag = document.createDocumentFragment();
+    for(var i=0;i<26;i++){
+      var m = document.createElement("span");
+      m.className = "mote";
+      m.style.left = (Math.random()*100).toFixed(2) + "%";
+      m.style.bottom = (Math.random()*46).toFixed(2) + "%";
+      m.style.animationDuration = (14 + Math.random()*20).toFixed(1) + "s";
+      m.style.animationDelay = (-Math.random()*30).toFixed(1) + "s";
+      if(Math.random() > .7){ m.style.width = m.style.height = "3px"; }
+      frag.appendChild(m);
+    }
+    motes.appendChild(frag);
+  }
+
+  /* ---------- skyline draws itself once in view ---------- */
+  (function(){
+    var sky = document.getElementById("skyline");
+    if(!sky || reduce) return;
+    var strokes = sky.querySelectorAll("path,polyline,line");
+    strokes.forEach(function(s, idx){
+      var len;
+      try { len = s.getTotalLength(); } catch(err){ return; }
+      if(!len || !isFinite(len)) return;
+      s.style.strokeDasharray = len;
+      s.style.strokeDashoffset = len;
+      s.style.transition = "stroke-dashoffset 2.2s cubic-bezier(.16,.84,.32,1) " + (idx * 0.055 + 0.25) + "s";
+    });
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        strokes.forEach(function(s){ s.style.strokeDashoffset = "0"; });
+      });
+    });
+  })();
+
+  /* ---------- scroll: nav state + hero parallax, one rAF that rests ---------- */
+  var scene = document.getElementById("scene");
+  var heroInner = document.getElementById("heroInner");
+  var skylineEl = document.getElementById("skyline");
+  var hazes = document.querySelectorAll(".haze");
+  var ticking = false, lastY = -1;
+
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if(y === lastY){ ticking = false; return; }
+    lastY = y;
+
+    if(y > 40){ nav.classList.add("scrolled"); } else { nav.classList.remove("scrolled"); }
+
+    if(!reduce && y < window.innerHeight * 1.25){
+      var p = y / window.innerHeight;
+      scene.style.transform = "translate3d(0," + (y * 0.28).toFixed(2) + "px,0)";
+      skylineEl.style.transform = "translateX(-50%) translate3d(0," + (y * -0.06).toFixed(2) + "px,0)";
+      hazes.forEach(function(h){
+        var d = parseFloat(h.getAttribute("data-depth")) || .1;
+        h.style.transform = "translate3d(0," + (y * -d * 1.6).toFixed(2) + "px,0)";
+      });
+      heroInner.style.transform = "translate3d(0," + (y * 0.16).toFixed(2) + "px,0)";
+      heroInner.style.opacity = Math.max(0, 1 - p * 1.35).toFixed(3);
+    }
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+
+  /* ---------- the yield arithmetic ---------- */
+  var SERVICE = 0.014;   // service charge, share of value per year
+  var MGMT    = 0.05;    // management, share of gross rent
+  var VACANCY = 0.05;    // vacancy allowance, share of gross rent
+  var DLD     = 0.04;    // transfer fee, one time
+
+  var valueEl = document.getElementById("value");
+  var grossEl = document.getElementById("gross");
+  var valueOut = document.getElementById("valueOut");
+  var grossOut = document.getElementById("grossOut");
+  var grossAed = document.getElementById("grossAed");
+  var netAed   = document.getElementById("netAed");
+  var netPct   = document.getElementById("netPct");
+  var dldFee   = document.getElementById("dldFee");
+
+  function aed(n){ return "AED " + Math.round(n).toLocaleString("en-US"); }
+
+  function recalc(){
+    var v = parseFloat(valueEl.value);
+    var g = parseFloat(grossEl.value) / 100;
+
+    var grossRent = v * g;
+    var net = grossRent - (v * SERVICE) - (grossRent * MGMT) - (grossRent * VACANCY);
+    if(net < 0) net = 0;
+
+    valueOut.textContent = aed(v);
+    grossOut.textContent = (g * 100).toFixed(1) + "%";
+    grossAed.textContent = aed(grossRent);
+    netAed.textContent   = aed(net);
+    netPct.textContent   = ((net / v) * 100).toFixed(1) + "%";
+    dldFee.textContent   = aed(v * DLD);
+  }
+  if(valueEl && grossEl){
+    valueEl.addEventListener("input", recalc);
+    grossEl.addEventListener("input", recalc);
+    recalc();
+  }
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll("#faq .q").forEach(function(q){
+    var btn = q.querySelector("button");
+    var body = q.querySelector(".q-body");
+    var inner = body.firstElementChild;
+    btn.addEventListener("click", function(){
+      var open = q.getAttribute("data-open") === "true";
+      document.querySelectorAll('#faq .q[data-open="true"]').forEach(function(o){
+        if(o !== q){
+          o.setAttribute("data-open","false");
+          o.querySelector("button").setAttribute("aria-expanded","false");
+          o.querySelector(".q-body").style.height = "0px";
+        }
+      });
+      if(open){
+        body.style.height = "0px";
+        q.setAttribute("data-open","false");
+        btn.setAttribute("aria-expanded","false");
+      } else {
+        body.style.height = inner.offsetHeight + "px";
+        q.setAttribute("data-open","true");
+        btn.setAttribute("aria-expanded","true");
+      }
+    });
+  });
+  window.addEventListener("resize", function(){
+    var open = document.querySelector('#faq .q[data-open="true"]');
+    if(open){
+      var b = open.querySelector(".q-body");
+      b.style.height = b.firstElementChild.offsetHeight + "px";
+    }
+  });
+
+  /* ---------- form ---------- */
+  var form = document.getElementById("consultForm");
+  var wrap = document.getElementById("formWrap");
+  if(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name = document.getElementById("fname");
+      var email = document.getElementById("femail");
+      var ok = true;
+      [name,email].forEach(function(f){
+        if(!f.value.trim() || (f.type === "email" && f.value.indexOf("@") < 1)){
+          f.style.borderBottomColor = "#a8443a";
+          ok = false;
+        } else {
+          f.style.borderBottomColor = "";
+        }
+      });
+      if(!ok){ (name.value.trim() ? email : name).focus(); return; }
+      wrap.classList.add("is-sent");
+      document.getElementById("sent").scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"center"});
+    });
+  }
+})();
+</script>
+</body>
+</html>
