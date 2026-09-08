@@ -19,13 +19,15 @@
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <header class="nav solid" id="nav">
   <a class="brand" href="index.html">Bramwell <i>&amp;</i> Partners</a>
   <nav class="nav-links" id="navLinks">
+    <a href="properties.html?deal=Off%20plan">Off Plan</a>
     <a href="properties.html">Properties</a>
+    <a href="insights.html">Insights</a>
     <a href="about.html">About</a>
-    <a href="index.html#premise">The Premise</a>
-    <a href="index.html#questions">Questions</a>
     <a class="btn" href="contact.html">Request a consultation</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
@@ -37,14 +39,21 @@
   <div class="ph" aria-hidden="true"><img id="pheadImg" alt="" decoding="async" src=""></div>
   <div class="wrap">
     <p class="mono eyebrow">Properties</p>
-    <h1>Villas, apartments, townhouses and duplexes.</h1>
-    <p class="lede">Each listing carries our net estimate beside the advertised gross, so the comparison you make is the one that matters.</p>
+    <h1>Off plan, resale and rental.</h1>
+    <p class="lede">Off plan listings carry the payment plan and the registration position. Resale carries the service charge and our net estimate. Rentals carry the cheque count and what is included.</p>
   </div>
 </section>
 
 <!-- ============================== FILTERS ============================== -->
 <div class="filters">
   <div class="wrap filters-in">
+    <div class="fgroup" role="group" aria-label="Filter by deal type">
+      <button class="chip" data-filter="deal" data-value="All" aria-pressed="true">All</button>
+      <button class="chip" data-filter="deal" data-value="Off plan" aria-pressed="false">Off plan</button>
+      <button class="chip" data-filter="deal" data-value="Resale" aria-pressed="false">Resale</button>
+      <button class="chip" data-filter="deal" data-value="Rental" aria-pressed="false">Rental</button>
+    </div>
+    <span class="fsep" aria-hidden="true"></span>
     <div class="fgroup" role="group" aria-label="Filter by property type">
       <button class="chip" data-filter="type" data-value="All" aria-pressed="true">All types</button>
       <button class="chip" data-filter="type" data-value="Villa" aria-pressed="false">Villa</button>
@@ -67,12 +76,11 @@
     </div>
     <span class="fspacer"></span>
     <div class="fgroup" style="gap:.85rem">
-      <span class="fcount" id="fcount"><b>8</b> properties</span>
+      <span class="fcount" id="fcount"><b>11</b> properties</span>
       <select class="fsel" id="sort" aria-label="Sort properties">
         <option value="price-desc">Price, high to low</option>
         <option value="price-asc">Price, low to high</option>
         <option value="area-desc">Largest first</option>
-        <option value="yield-desc">Highest gross yield</option>
       </select>
     </div>
   </div>
@@ -122,17 +130,16 @@
         <b>Bramwell &amp; Partners</b>
         <p>A boutique property advisory serving investors across Dubai and Abu Dhabi. Founded by principals with more than two decades in these two markets.</p>
       </div>
-      <div class="f-col"><h4>Properties</h4><ul>
-        <li><a href="properties.html?type=Villa">Villas</a></li>
-        <li><a href="properties.html?type=Apartment">Apartments</a></li>
-        <li><a href="properties.html?type=Townhouse">Townhouses</a></li>
-        <li><a href="properties.html?type=Duplex">Duplexes</a></li>
+      <div class="f-col"><h4>Buy</h4><ul>
+        <li><a href="properties.html?deal=Off%20plan">Off plan</a></li>
+        <li><a href="properties.html?deal=Resale">Resale</a></li>
+        <li><a href="properties.html?deal=Rental">Rentals</a></li>
         <li><a href="properties.html">All properties</a></li>
       </ul></div>
       <div class="f-col"><h4>Firm</h4><ul>
         <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Market insights</a></li>
         <li><a href="index.html#premise">The premise</a></li>
-        <li><a href="index.html#file">What you receive</a></li>
         <li><a href="index.html#questions">Questions</a></li>
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
@@ -149,7 +156,9 @@
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
 <script src="assets/data.js"></script>
+<script src="assets/posts.js"></script>
 <script>
   (function(){
     var i = document.getElementById("pheadImg");

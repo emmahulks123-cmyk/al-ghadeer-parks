@@ -19,13 +19,15 @@
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <header class="nav solid" id="nav">
   <a class="brand" href="index.html">Bramwell <i>&amp;</i> Partners</a>
   <nav class="nav-links" id="navLinks">
+    <a href="properties.html?deal=Off%20plan">Off Plan</a>
     <a href="properties.html">Properties</a>
+    <a href="insights.html">Insights</a>
     <a href="about.html">About</a>
-    <a href="index.html#premise">The Premise</a>
-    <a href="index.html#questions">Questions</a>
     <a class="btn" href="contact.html">Request a consultation</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
@@ -120,6 +122,18 @@
         <div class="field"><label class="mono" for="fmsg">What are you solving for?</label>
           <textarea id="fmsg" name="message" placeholder="Tell us as much or as little as you like."></textarea>
         </div>
+
+        <!-- honeypot: hidden from people, filled in by most bots -->
+        <div class="hp" aria-hidden="true">
+          <label for="fcompany">Company</label>
+          <input type="text" id="fcompany" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- reCAPTCHA renders here once the site key is set in assets/config.js -->
+        <div class="g-recaptcha" id="captcha"></div>
+
+        <p class="form-error" role="alert" hidden></p>
+
         <div class="ffoot">
           <button class="btn btn-solid" type="submit">Send enquiry</button>
           <p class="privacy">Held in confidence. Never shared, never sold, never added to a mailing list.</p>
@@ -134,6 +148,25 @@
   </div>
 </section>
 
+<!-- ============================== OFFICES ============================== -->
+<section class="pad-s" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head">
+      <p class="mono eyebrow rv">Where you will find us</p>
+      <h2 class="rv d1" style="font-size:clamp(1.5rem,1.1rem + 1.6vw,2.4rem);max-width:20ch">Two offices, two markets.</h2>
+    </div>
+    <div class="mosaic">
+      <figure class="m-wide rv" style="margin:0"><div class="ph wipe zoom"><img id="ct1" alt="Meeting room" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Where briefs are taken, before any viewing.</figcaption></figure>
+      <figure class="rv d1" style="margin:0"><div class="ph wipe zoom"><img id="ct2" alt="Dubai skyline" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Dubai.</figcaption></figure>
+      <figure class="rv d2" style="margin:0"><div class="ph wipe zoom"><img id="ct3" alt="Abu Dhabi cultural district" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Abu Dhabi.</figcaption></figure>
+    </div>
+    <div class="duo">
+      <figure class="rv" style="margin:0"><div class="ph wipe zoom"><img id="ct4" alt="Site plan and model" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Every recommendation arrives with its working shown.</figcaption></figure>
+      <figure class="rv d1" style="margin:0"><div class="ph wipe zoom"><img id="ct5" alt="Waterfront aerial" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">The communities we cover.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="f-top">
@@ -141,17 +174,16 @@
         <b>Bramwell &amp; Partners</b>
         <p>A boutique property advisory serving investors across Dubai and Abu Dhabi. Founded by principals with more than two decades in these two markets.</p>
       </div>
-      <div class="f-col"><h4>Properties</h4><ul>
-        <li><a href="properties.html?type=Villa">Villas</a></li>
-        <li><a href="properties.html?type=Apartment">Apartments</a></li>
-        <li><a href="properties.html?type=Townhouse">Townhouses</a></li>
-        <li><a href="properties.html?type=Duplex">Duplexes</a></li>
+      <div class="f-col"><h4>Buy</h4><ul>
+        <li><a href="properties.html?deal=Off%20plan">Off plan</a></li>
+        <li><a href="properties.html?deal=Resale">Resale</a></li>
+        <li><a href="properties.html?deal=Rental">Rentals</a></li>
         <li><a href="properties.html">All properties</a></li>
       </ul></div>
       <div class="f-col"><h4>Firm</h4><ul>
         <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Market insights</a></li>
         <li><a href="index.html#premise">The premise</a></li>
-        <li><a href="index.html#file">What you receive</a></li>
         <li><a href="index.html#questions">Questions</a></li>
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
@@ -168,11 +200,33 @@
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
 <script src="assets/data.js"></script>
+<script src="assets/posts.js"></script>
 <script>
   (function(){
-    var i = document.getElementById("pheadImg");
-    if(i && window.BRAMWELL_SITE) i.src = window.BRAMWELL_MEDIA + window.BRAMWELL_SITE.aerial;
+    var S = window.BRAMWELL_SITE, M = window.BRAMWELL_MEDIA;
+    if(!S) return;
+    var map = { pheadImg: S.reception, ct1: S.meetingRoom, ct2: S.skyline,
+                ct3: S.cultural, ct4: S.desk, ct5: S.aerial };
+    Object.keys(map).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && map[id]) el.src = M + map[id];
+    });
+  })();
+
+  /* Google's reCAPTCHA loads only once a real site key is set, so the page
+     stays clean and the form still works while you are testing locally. */
+  (function(){
+    var key = (window.BRAMWELL_CONFIG || {}).recaptchaSiteKey || "";
+    var box = document.getElementById("captcha");
+    if(!box) return;
+    if(!key || key.indexOf("REPLACE_WITH") === 0){ box.remove(); return; }
+    box.setAttribute("data-sitekey", key);
+    var s = document.createElement("script");
+    s.src = "https://www.google.com/recaptcha/api.js";
+    s.async = true; s.defer = true;
+    document.head.appendChild(s);
   })();
 </script>
 <script src="assets/site.js"></script>

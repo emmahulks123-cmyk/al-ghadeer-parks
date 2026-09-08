@@ -19,13 +19,15 @@
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <header class="nav solid" id="nav">
   <a class="brand" href="index.html">Bramwell <i>&amp;</i> Partners</a>
   <nav class="nav-links" id="navLinks">
+    <a href="properties.html?deal=Off%20plan">Off Plan</a>
     <a href="properties.html">Properties</a>
+    <a href="insights.html">Insights</a>
     <a href="about.html">About</a>
-    <a href="index.html#premise">The Premise</a>
-    <a href="index.html#questions">Questions</a>
     <a class="btn" href="contact.html">Request a consultation</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
@@ -55,6 +57,18 @@
       <p style="color:var(--ink-2)">In a market where commission flows from the developer, the incentive is to move the stock that pays best. That is not a scandal, it is simply how most of the industry is built. It does mean the advice you receive is rarely neutral.</p>
       <p style="color:var(--ink-2)">We took the other structure. Our fee comes from the buyer, disclosed in writing before any work begins, and we take nothing from developers. It makes for a smaller business. It also makes our advice worth something, because there is no version of the transaction where we do better by pointing you at the wrong building.</p>
       <p style="color:var(--ink-2)">The practical result is short shortlists, slow recommendations, and a written argument against every purchase we put in front of you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ROOMS ============================== -->
+<section class="pad-s">
+  <div class="wrap">
+    <div class="duo">
+      <figure class="rv" style="margin:0"><div class="ph wipe zoom"><img id="ab1" alt="Advisory office reception" loading="lazy" decoding="async" src=""></div>
+        <figcaption class="figcap">Our offices in Dubai and Abu Dhabi.</figcaption></figure>
+      <figure class="rv d1" style="margin:0"><div class="ph wipe zoom"><img id="ab2" alt="Material samples" loading="lazy" decoding="async" src=""></div>
+        <figcaption class="figcap">Specification checked in the materials, not the brochure.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -99,6 +113,17 @@
   </div>
 </section>
 
+<!-- ============================== MOSAIC ============================== -->
+<section class="pad-s">
+  <div class="wrap">
+    <div class="mosaic">
+      <figure class="m-wide rv" style="margin:0"><div class="ph wipe zoom"><img id="ab4" alt="Waterfront community aerial" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Dubai waterfront.</figcaption></figure>
+      <figure class="rv d1" style="margin:0"><div class="ph wipe zoom"><img id="ab5" alt="Cultural district architecture" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Saadiyat, Abu Dhabi.</figcaption></figure>
+      <figure class="rv d2" style="margin:0"><div class="ph wipe zoom"><img id="ab6" alt="Architectural scale model" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Off plan, before it exists.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============================== PROCESS ============================== -->
 <section class="dark pad">
   <div class="wrap">
@@ -122,6 +147,18 @@
         <h3 style="color:#fff">The decision</h3>
         <p style="color:rgba(255,255,255,.68);max-width:56ch">We view, negotiate, structure and handle registration. If nothing on the list holds up under the final look, we tell you plainly and we wait. A year of patience has cost our clients far less than a wrong entry.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BAND ============================== -->
+<section class="band">
+  <div class="ph" data-parallax="10" aria-hidden="true"><img id="ab3" alt="" loading="lazy" decoding="async" src=""></div>
+  <div class="wrap">
+    <div class="head">
+      <p class="mono eyebrow rv">On the ground</p>
+      <h2 class="rv d1" style="max-width:18ch">We visit what we recommend.</h2>
+      <p class="lede rv d2">Every building on our list has been walked, including the service corridors and the parking. Renders are uniform across the industry. Buildings after three years of use are not.</p>
     </div>
   </div>
 </section>
@@ -167,17 +204,16 @@
         <b>Bramwell &amp; Partners</b>
         <p>A boutique property advisory serving investors across Dubai and Abu Dhabi. Founded by principals with more than two decades in these two markets.</p>
       </div>
-      <div class="f-col"><h4>Properties</h4><ul>
-        <li><a href="properties.html?type=Villa">Villas</a></li>
-        <li><a href="properties.html?type=Apartment">Apartments</a></li>
-        <li><a href="properties.html?type=Townhouse">Townhouses</a></li>
-        <li><a href="properties.html?type=Duplex">Duplexes</a></li>
+      <div class="f-col"><h4>Buy</h4><ul>
+        <li><a href="properties.html?deal=Off%20plan">Off plan</a></li>
+        <li><a href="properties.html?deal=Resale">Resale</a></li>
+        <li><a href="properties.html?deal=Rental">Rentals</a></li>
         <li><a href="properties.html">All properties</a></li>
       </ul></div>
       <div class="f-col"><h4>Firm</h4><ul>
         <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Market insights</a></li>
         <li><a href="index.html#premise">The premise</a></li>
-        <li><a href="index.html#file">What you receive</a></li>
         <li><a href="index.html#questions">Questions</a></li>
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
@@ -194,11 +230,21 @@
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
 <script src="assets/data.js"></script>
+<script src="assets/posts.js"></script>
 <script>
   (function(){
-    var i = document.getElementById("pheadImg");
-    if(i && window.BRAMWELL_SITE) i.src = window.BRAMWELL_MEDIA + window.BRAMWELL_SITE.livingWide;
+    var S = window.BRAMWELL_SITE, M = window.BRAMWELL_MEDIA;
+    if(!S) return;
+    var map = {
+      pheadImg: S.meetingRoom, ab1: S.reception, ab2: S.materials,
+      ab3: S.construction, ab4: S.aerial, ab5: S.cultural, ab6: S.model
+    };
+    Object.keys(map).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && map[id]) el.src = M + map[id];
+    });
   })();
 </script>
 <script src="assets/site.js"></script>

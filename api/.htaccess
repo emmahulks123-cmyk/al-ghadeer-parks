@@ -1,0 +1,22 @@
+# Keep the lead backup and the config off the public web.
+# lead.php stays reachable; everything sensitive here does not.
+
+<FilesMatch "\.(csv|log)$">
+  Require all denied
+</FilesMatch>
+
+<Files "config.php">
+  Require all denied
+</Files>
+
+# Older Apache (2.2) equivalents, harmless on 2.4
+<IfModule !mod_authz_core.c>
+  <FilesMatch "\.(csv|log)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+  <Files "config.php">
+    Order allow,deny
+    Deny from all
+  </Files>
+</IfModule>

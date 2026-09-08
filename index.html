@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bramwell &amp; Partners | Property Advisory, Dubai &amp; Abu Dhabi</title>
-<meta name="description" content="A boutique property advisory for investors in Dubai and Abu Dhabi. Villas, apartments, townhouses and duplexes, with the net figure worked through before anything reaches your shortlist.">
+<title>Bramwell &amp; Partners | Off Plan and Ready Property, Dubai &amp; Abu Dhabi</title>
+<meta name="description" content="A boutique property advisory for investors in Dubai and Abu Dhabi. Off plan launches, resale and rentals, with the net figure worked through before anything reaches your shortlist.">
 <meta name="theme-color" content="#FBF9F6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bramwell &amp; Partners | Property Advisory">
-<meta property="og:description" content="The honest number. A boutique advisory for investors in Dubai and Abu Dhabi.">
+<meta property="og:description" content="Off plan and ready property in Dubai and Abu Dhabi. The honest number.">
 <meta property="og:url" content="https://bramwellre.com/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,13 +19,15 @@
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <header class="nav on-dark" id="nav">
   <a class="brand" href="index.html">Bramwell <i>&amp;</i> Partners</a>
   <nav class="nav-links" id="navLinks">
+    <a href="properties.html?deal=Off%20plan">Off Plan</a>
     <a href="properties.html">Properties</a>
+    <a href="insights.html">Insights</a>
     <a href="about.html">About</a>
-    <a href="index.html#premise">The Premise</a>
-    <a href="index.html#questions">Questions</a>
     <a class="btn" href="contact.html">Request a consultation</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
@@ -35,95 +37,130 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero">
-  <div class="ph" aria-hidden="true">
-    <img id="heroImg" alt="" fetchpriority="high" decoding="async" src="">
-  </div>
+  <div class="ph wipe" data-parallax="8" aria-hidden="true"><img id="heroImg" alt="" fetchpriority="high" decoding="async" src=""></div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="wrap">
-      <p class="mono eyebrow fade-up">Boutique Advisory &nbsp;·&nbsp; Dubai &amp; Abu Dhabi</p>
-      <h1>
-        <span class="w"><span>The honest</span></span>
-        <span class="w"><span>number.</span></span>
-      </h1>
+      <p class="mono eyebrow fade-up">Off plan &amp; ready &nbsp;·&nbsp; Dubai &amp; Abu Dhabi</p>
+      <h1 class="lines"><span><i>The honest</i></span><span><i>number.</i></span></h1>
       <div class="hero-foot">
-        <p class="lede fade-up u2">Villas, apartments, townhouses and duplexes across both emirates. Every one arrives with the figure that reaches your account, not the one on the brochure.</p>
+        <p class="lede fade-up u2">Off plan launches, resale and rentals across both emirates. Every one arrives with the figure that reaches your account, not the one on the brochure.</p>
         <div class="hero-cta fade-up u3">
-          <a class="btn btn-brass" href="properties.html">View properties</a>
-          <a class="btn" href="contact.html">Request a consultation</a>
+          <a class="btn btn-brass" href="properties.html?deal=Off%20plan">Off plan launches</a>
+          <a class="btn" href="properties.html">All properties</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================== FEATURED ============================== -->
-<section class="pad" id="featuredSection">
+<!-- ============================== OFF PLAN ============================== -->
+<section class="pad" id="offplan">
   <div class="wrap">
     <div class="head" style="max-width:none">
-      <p class="mono eyebrow rv">Selected properties</p>
+      <p class="mono eyebrow rv">Off plan &nbsp;·&nbsp; Priority</p>
       <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end">
-        <h2 class="rv d1" style="max-width:16ch">A short list, chosen carefully.</h2>
-        <a class="btn btn-ghost rv d2" href="properties.html">All properties</a>
+        <h2 class="rv d1" style="max-width:17ch">Buy before it is built, on the right plan.</h2>
+        <a class="btn btn-ghost rv d2" href="properties.html?deal=Off%20plan">All off plan</a>
       </div>
+      <p class="lede rv d2" style="max-width:56ch">The payment plan and the registration detail decide more about an off plan purchase than the floor plan does. Both are on every listing below.</p>
     </div>
-    <div class="grid-p" id="featured" style="margin-top:clamp(2.2rem,5vw,3.5rem)"></div>
+    <div class="grid-p" data-strip="Off plan" data-limit="3" style="margin-top:clamp(2.2rem,5vw,3.5rem)"></div>
   </div>
 </section>
 
-<!-- ============================== BY TYPE ============================== -->
+<!-- ============================== BAND: WHY OFF PLAN ============================== -->
+<section class="band">
+  <div class="ph" data-parallax="10" aria-hidden="true"><img id="bandImg" alt="" loading="lazy" decoding="async" src=""></div>
+  <div class="wrap">
+    <div class="head">
+      <p class="mono eyebrow rv">Why we lead with off plan</p>
+      <h2 class="rv d1" style="max-width:20ch">Entry price, payment terms, and time to choose.</h2>
+      <p class="lede rv d2">Off plan lets you stage capital across three or four years instead of committing it in one week, and it buys at today's price for a building that completes at tomorrow's. The tradeoff is delivery risk, which is why we check the developer before we check the view.</p>
+    </div>
+    <div class="rv d3" style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem">
+      <a class="btn btn-brass" href="properties.html?deal=Off%20plan">See off plan</a>
+      <a class="btn" href="post.html?id=reading-a-developer-track-record">How we vet developers</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== READY ============================== -->
+<section class="pad" id="ready">
+  <div class="wrap">
+    <div class="head" style="max-width:none">
+      <p class="mono eyebrow rv">Ready &nbsp;·&nbsp; Resale and rental</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end">
+        <h2 class="rv d1" style="max-width:17ch">Completed, inspected, income from day one.</h2>
+        <a class="btn btn-ghost rv d2" href="properties.html?deal=Resale">All resale</a>
+      </div>
+      <p class="lede rv d2" style="max-width:56ch">Keys now rather than in 2028. Resale carries the service charge and tenancy position on the listing. Rentals carry the cheque count and what is included.</p>
+    </div>
+    <div class="grid-p" data-strip="Resale" data-limit="3" style="margin-top:clamp(2.2rem,5vw,3.5rem)"></div>
+    <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.7rem" class="rv">
+      <a class="chip" href="properties.html?deal=Rental">Looking to rent instead</a>
+      <a class="chip" href="properties.html?type=Villa">Villas</a>
+      <a class="chip" href="properties.html?type=Townhouse">Townhouses</a>
+      <a class="chip" href="properties.html?type=Duplex">Duplexes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MOSAIC ============================== -->
 <section class="pad-s">
   <div class="wrap">
-    <hr class="rule">
-    <div style="display:flex;flex-wrap:wrap;gap:.7rem;padding-top:clamp(2rem,4vw,2.75rem);align-items:center">
-      <span class="mono muted rv" style="margin-right:.6rem">Browse by type</span>
-      <a class="chip rv d1" href="properties.html?type=Villa">Villas</a>
-      <a class="chip rv d2" href="properties.html?type=Apartment">Apartments</a>
-      <a class="chip rv d3" href="properties.html?type=Townhouse">Townhouses</a>
-      <a class="chip rv d4" href="properties.html?type=Duplex">Duplexes</a>
+    <div class="head">
+      <p class="mono eyebrow rv">The two markets</p>
+      <h2 class="rv d1" style="font-size:clamp(1.6rem,1.1rem + 1.9vw,2.8rem);max-width:20ch">What we look at, before we look at price.</h2>
+    </div>
+    <div class="mosaic">
+      <figure class="m-wide m-tall rv" style="margin:0"><div class="ph wipe zoom"><img id="mos1" alt="Waterfront community from the air" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Community and outlook, before the unit.</figcaption></figure>
+      <figure class="rv d1" style="margin:0"><div class="ph wipe zoom"><img id="mos2" alt="Rooftop amenity deck" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Amenity that is maintained, not just built.</figcaption></figure>
+      <figure class="rv d2" style="margin:0"><div class="ph wipe zoom"><img id="mos3" alt="Villa community street" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Streets, schools, and who your neighbours are.</figcaption></figure>
+      <figure class="rv d3" style="margin:0"><div class="ph wipe zoom"><img id="mos4" alt="Tower under construction" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Progress against the promised date.</figcaption></figure>
+      <figure class="rv d4" style="margin:0"><div class="ph wipe zoom"><img id="mos5" alt="Material samples" loading="lazy" decoding="async" src=""></div><figcaption class="figcap">Specification, in the materials rather than the brochure.</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ============================== PREMISE (dark band) ============================== -->
+<!-- ============================== PREMISE ============================== -->
 <section class="dark pad" id="premise">
-  <div class="wrap">
-    <div class="split">
-      <div>
-        <div class="head">
-          <p class="mono eyebrow rv">The premise</p>
-          <h2 class="rv d1">Sold on a number that never arrives.</h2>
-        </div>
-        <div class="rv d2" style="display:grid;gap:1.3rem;margin-top:2rem;max-width:52ch">
-          <p>Seven to ten percent. It is the yield on almost every brochure here, and it is <strong style="color:#fff;font-weight:500">gross</strong>. Quoted before service charges, before management, before a single week of vacancy.</p>
-          <p>What reaches your account is closer to <strong style="color:#fff;font-weight:500">four to six</strong>. That gap is not a scandal. It is arithmetic nobody selling you a unit is paid to perform.</p>
-          <p>Better you hear it from us at the start than find it in year two.</p>
-        </div>
+  <div class="wrap split">
+    <div>
+      <div class="head">
+        <p class="mono eyebrow rv">The premise</p>
+        <h2 class="rv d1">Sold on a number that never arrives.</h2>
       </div>
+      <div class="rv d2" style="display:grid;gap:1.3rem;margin-top:2rem;max-width:52ch">
+        <p>Seven to ten percent. It is the yield on almost every brochure here, and it is <strong style="color:#fff;font-weight:500">gross</strong>. Quoted before service charges, before management, before a single week of vacancy.</p>
+        <p>What reaches your account is closer to <strong style="color:#fff;font-weight:500">four to six</strong>. That gap is not a scandal. It is arithmetic nobody selling you a unit is paid to perform.</p>
+        <p>Better you hear it from us at the start than find it in year two.</p>
+      </div>
+      <a class="btn rv d3" href="post.html?id=gross-versus-net-dubai-yields" style="margin-top:2rem">Read the full breakdown</a>
+    </div>
 
-      <div class="calc rv d2">
-        <h3>Run it yourself</h3>
-        <p class="calc-hint">Move the sliders. These are the cost assumptions we use on live files.</p>
-        <div class="srow">
-          <label class="mono" for="value">Purchase price</label>
-          <output id="valueOut" for="value">AED 4,000,000</output>
-        </div>
-        <input type="range" id="value" min="1500000" max="50000000" step="100000" value="4000000" aria-label="Purchase price in dirhams">
-        <div class="srow" style="margin-top:1.8rem">
-          <label class="mono" for="gross">Advertised gross yield</label>
-          <output id="grossOut" for="gross">7.5%</output>
-        </div>
-        <input type="range" id="gross" min="3" max="10" step="0.1" value="7.5" aria-label="Advertised gross yield percentage">
-        <div class="cout" aria-live="polite">
-          <div class="a"><b id="grossAed">AED 300,000</b><small>Gross rent, year one</small></div>
-          <div class="b"><b id="netAed">AED 214,000</b><small>Net to you, year one</small></div>
-        </div>
-        <p class="cnote">
-          Deducted: service charges at <strong>1.4%</strong> of value, management at <strong>5%</strong> of rent, and a
-          <strong>5%</strong> vacancy allowance. Effective net yield <strong id="netPct">5.4%</strong>.
-          The 4% Dubai Land Department transfer fee sits on top as a one time <strong id="dldFee">AED 160,000</strong>.
-        </p>
+    <div class="calc rv d2">
+      <h3>Run it yourself</h3>
+      <p class="calc-hint">Move the sliders. These are the cost assumptions we use on live files.</p>
+      <div class="srow">
+        <label class="mono" for="value">Purchase price</label>
+        <output id="valueOut" for="value">AED 4,000,000</output>
       </div>
+      <input type="range" id="value" min="1500000" max="50000000" step="100000" value="4000000" aria-label="Purchase price in dirhams">
+      <div class="srow" style="margin-top:1.8rem">
+        <label class="mono" for="gross">Advertised gross yield</label>
+        <output id="grossOut" for="gross">7.5%</output>
+      </div>
+      <input type="range" id="gross" min="3" max="10" step="0.1" value="7.5" aria-label="Advertised gross yield percentage">
+      <div class="cout" aria-live="polite">
+        <div class="a"><b id="grossAed">AED 300,000</b><small>Gross rent, year one</small></div>
+        <div class="b"><b id="netAed">AED 214,000</b><small>Net to you, year one</small></div>
+      </div>
+      <p class="cnote">
+        Deducted: service charges at <strong>1.4%</strong> of value, management at <strong>5%</strong> of rent, and a
+        <strong>5%</strong> vacancy allowance. Effective net yield <strong id="netPct">5.4%</strong>.
+        The 4% Dubai Land Department transfer fee sits on top as a one time <strong id="dldFee">AED 160,000</strong>.
+      </p>
     </div>
   </div>
 </section>
@@ -136,41 +173,33 @@
       <h2 class="rv d1">Three commitments, held on every file.</h2>
     </div>
     <div class="cards3">
-      <article class="cell rv d1">
-        <span class="mono">01</span>
-        <h3>Advisory, not inventory</h3>
-        <p>We are not paid to move a particular building. We are paid to be right about the one you buy. That is why our shortlists are short.</p>
-      </article>
-      <article class="cell rv d2">
-        <span class="mono">02</span>
-        <h3>Access earned over two decades</h3>
-        <p>Our principals have worked Dubai and Abu Dhabi for more than twenty years. That opens certain doors, and closes the wrong ones early.</p>
-      </article>
-      <article class="cell rv d3">
-        <span class="mono">03</span>
-        <h3>The full file, awkward parts included</h3>
-        <p>Supply pipeline, handover record, service charge trajectory, exit liquidity. You get the case against the purchase alongside the case for it.</p>
-      </article>
+      <article class="cell rv d1"><span class="mono">01</span><h3>Advisory, not inventory</h3>
+        <p>We are not paid to move a particular building. We are paid to be right about the one you buy. That is why our shortlists are short.</p></article>
+      <article class="cell rv d2"><span class="mono">02</span><h3>Access earned over two decades</h3>
+        <p>Our principals have worked Dubai and Abu Dhabi for more than twenty years. That opens certain doors, and closes the wrong ones early.</p></article>
+      <article class="cell rv d3"><span class="mono">03</span><h3>The full file, awkward parts included</h3>
+        <p>Supply pipeline, handover record, service charge trajectory, exit liquidity. You get the case against the purchase alongside the case for it.</p></article>
+    </div>
+    <div class="duo">
+      <figure class="rv" style="margin:0"><div class="ph wipe zoom"><img id="duo1" alt="Advisory meeting room" loading="lazy" decoding="async" src=""></div>
+        <figcaption class="figcap">Every brief starts in a room, not on a viewing.</figcaption></figure>
+      <figure class="rv d1" style="margin:0"><div class="ph wipe zoom"><img id="duo2" alt="Site plan and scale model on a desk" loading="lazy" decoding="async" src=""></div>
+        <figcaption class="figcap">The file behind each recommendation.</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ============================== THE FILE ============================== -->
-<section class="pad" style="background:var(--paper-2)" id="file">
+<!-- ============================== INSIGHTS ============================== -->
+<section class="pad" style="background:var(--paper-2)" id="insights">
   <div class="wrap">
-    <div class="head">
-      <p class="mono eyebrow rv">What you receive</p>
-      <h2 class="rv d1">Every recommendation shows its working.</h2>
-      <p class="lede rv d2">No property reaches your shortlist without these six pieces of work behind it. You keep the file whether you buy through us or not.</p>
+    <div class="head" style="max-width:none">
+      <p class="mono eyebrow rv">Market insights</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end">
+        <h2 class="rv d1" style="max-width:17ch">What we are telling clients this quarter.</h2>
+        <a class="btn btn-ghost rv d2" href="insights.html">All insights</a>
+      </div>
     </div>
-    <div class="cards3 six">
-      <article class="cell rv"><span class="mono">01</span><h4>Net yield model</h4><p>Gross rent, the building's actual service charge rate, management, vacancy and the transfer fee, laid out year by year rather than flattened into one percentage.</p></article>
-      <article class="cell rv d1"><span class="mono">02</span><h4>Supply pipeline</h4><p>What else completes within eighteen months of your handover, and what that volume tends to do to achievable rent. The analysis most often skipped.</p></article>
-      <article class="cell rv d2"><span class="mono">03</span><h4>Developer record</h4><p>Past handover dates against promised ones, escrow standing and build quality on delivered stock. Track record is the most reliable predictor in off plan.</p></article>
-      <article class="cell rv d3"><span class="mono">04</span><h4>Residency position</h4><p>Whether the purchase clears the AED 2 million Golden Visa threshold, and precisely when. Off plan and ready property behave very differently here.</p></article>
-      <article class="cell rv d4"><span class="mono">05</span><h4>Exit assessment</h4><p>Resale liquidity in the community, typical days on market and the buyer profile you would be selling into. Entry is easy here. Exit is worth planning.</p></article>
-      <article class="cell rv d5"><span class="mono">06</span><h4>The case against</h4><p>A written argument for not proceeding. If we cannot make one, that is itself a signal. Usually we can, and it is the page clients read twice.</p></article>
-    </div>
+    <div class="grid-b" data-posts="latest" data-limit="3" style="margin-top:clamp(2.2rem,5vw,3.5rem)"></div>
   </div>
 </section>
 
@@ -183,20 +212,18 @@
     </div>
     <div class="mk-grid">
       <div class="mk rv d1">
-        <h3>Dubai</h3>
-        <span class="mono">Freehold · Prime and branded</span>
+        <h3>Dubai</h3><span class="mono">Freehold · Prime and branded</span>
         <ul>
           <li>Palm Jumeirah <span>Waterfront</span></li>
+          <li>Dubai Harbour <span>Off plan</span></li>
+          <li>Dubai Creek Harbour <span>Off plan</span></li>
           <li>Emirates Hills <span>Villa</span></li>
           <li>Downtown Dubai <span>Branded</span></li>
           <li>Dubai Hills Estate <span>Family</span></li>
-          <li>Jumeirah Bay Island <span>Ultra prime</span></li>
-          <li>Bluewaters Island <span>Waterfront</span></li>
         </ul>
       </div>
       <div class="mk rv d2">
-        <h3>Abu Dhabi</h3>
-        <span class="mono">Investment zones · Cultural district</span>
+        <h3>Abu Dhabi</h3><span class="mono">Investment zones · Cultural district</span>
         <ul>
           <li>Saadiyat Island <span>Cultural</span></li>
           <li>Al Reem Island <span>Yield</span></li>
@@ -219,30 +246,31 @@
     </div>
     <div class="qs">
       <div class="q"><button type="button" aria-expanded="false">Is the seven percent yield real?</button>
-        <div class="qb"><div>As a gross figure, often yes. As money in your account, no. Service charges in prime buildings run high, management takes its share, and no property is occupied fifty two weeks a year. Net yields in the communities we work in typically land between four and six percent. Any adviser quoting you a net figure above that should be asked to show the deductions.</div></div></div>
+        <div class="qb"><div>As a gross figure, often yes. As money in your account, no. Service charges in prime buildings run high, management takes its share, and no property is occupied fifty two weeks a year. Net yields in the communities we work in typically land between four and six percent.</div></div></div>
       <div class="q"><button type="button" aria-expanded="false">Does off plan qualify for the Golden Visa straight away?</button>
-        <div class="qb"><div>It depends on how the purchase is registered. With a DLD registered developer, a twenty percent payment plus the transfer fee, and Oqood registration reflecting the full value, an application can usually proceed at that point. Structured differently, you may wait until completion, which can be two or three years. This is paperwork, not luck, and it is worth settling before you sign.</div></div></div>
+        <div class="qb"><div>It depends on how the purchase is registered. With a DLD registered developer, a twenty percent payment plus the transfer fee, and Oqood registration reflecting the full value, an application can usually proceed at that point. Structured differently, you may wait until completion.</div></div></div>
+      <div class="q"><button type="button" aria-expanded="false">Why do you lead with off plan?</button>
+        <div class="qb"><div>Because for most investors it is the better structure. Capital is staged across the build rather than committed in one week, entry pricing is lower, and the payment plan can be matched to your own cash flow. It carries delivery risk, which is exactly why we check the developer's handover record before anything else.</div></div></div>
       <div class="q"><button type="button" aria-expanded="false">How do you assess an off plan developer?</button>
-        <div class="qb"><div>Delivery history first, measured as promised handover dates against actual ones across completed projects. Then escrow standing, build quality on delivered stock, and how they behaved in previous soft markets. Established names with long records carry less risk than a developer with one launch and a good render. We will tell you where a project sits on that spectrum.</div></div></div>
-      <div class="q"><button type="button" aria-expanded="false">Everyone is building. Should supply worry me?</button>
-        <div class="qb"><div>In specific communities, yes. When several developers complete into the same district within a twelve to eighteen month window, rents soften exactly as your unit comes online, and a yield modelled at eight percent can arrive at five. This is measurable in advance. We map the completion pipeline around any property before it reaches your shortlist.</div></div></div>
+        <div class="qb"><div>Delivery history first, measured as promised handover dates against actual ones across completed projects. Then escrow standing, build quality on delivered stock, and how they behaved in previous soft markets.</div></div></div>
       <div class="q"><button type="button" aria-expanded="false">How are you paid?</button>
-        <div class="qb"><div>We are engaged by the buyer, and we disclose every fee in writing before work begins. We do not take developer incentives to steer you toward particular stock. It is a smaller business built this way, and it is the only structure under which our advice is worth anything to you.</div></div></div>
+        <div class="qb"><div>We are engaged by the buyer, and we disclose every fee in writing before work begins. We do not take developer incentives to steer you toward particular stock.</div></div></div>
       <div class="q"><button type="button" aria-expanded="false">Do you work with investors based outside the UAE?</button>
-        <div class="qb"><div>Most of our clients are. We handle the process remotely as standard, including power of attorney arrangements, registration and handover inspection. Many complete a purchase before they visit. We would still encourage a visit, though we recognise it is not always practical.</div></div></div>
+        <div class="qb"><div>Most of our clients are. We handle the process remotely as standard, including power of attorney arrangements, registration and handover inspection.</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- ============================== CTA ============================== -->
-<section class="dark pad">
-  <div class="wrap" style="display:grid;gap:2rem;justify-items:start">
+<section class="band">
+  <div class="ph" data-parallax="8" aria-hidden="true"><img id="ctaImg" alt="" loading="lazy" decoding="async" src=""></div>
+  <div class="wrap">
     <div class="head">
       <p class="mono eyebrow rv">Begin</p>
       <h2 class="rv d1">A conversation, not a viewing.</h2>
       <p class="lede rv d2">Tell us what you are solving for. We will tell you honestly whether this market, at this moment, is the right answer for it.</p>
     </div>
-    <div class="rv d3" style="display:flex;flex-wrap:wrap;gap:.8rem">
+    <div class="rv d3" style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem">
       <a class="btn btn-brass" href="contact.html">Request a consultation</a>
       <a class="btn" href="properties.html">Browse properties</a>
     </div>
@@ -256,17 +284,16 @@
         <b>Bramwell &amp; Partners</b>
         <p>A boutique property advisory serving investors across Dubai and Abu Dhabi. Founded by principals with more than two decades in these two markets.</p>
       </div>
-      <div class="f-col"><h4>Properties</h4><ul>
-        <li><a href="properties.html?type=Villa">Villas</a></li>
-        <li><a href="properties.html?type=Apartment">Apartments</a></li>
-        <li><a href="properties.html?type=Townhouse">Townhouses</a></li>
-        <li><a href="properties.html?type=Duplex">Duplexes</a></li>
+      <div class="f-col"><h4>Buy</h4><ul>
+        <li><a href="properties.html?deal=Off%20plan">Off plan</a></li>
+        <li><a href="properties.html?deal=Resale">Resale</a></li>
+        <li><a href="properties.html?deal=Rental">Rentals</a></li>
         <li><a href="properties.html">All properties</a></li>
       </ul></div>
       <div class="f-col"><h4>Firm</h4><ul>
         <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Market insights</a></li>
         <li><a href="index.html#premise">The premise</a></li>
-        <li><a href="index.html#file">What you receive</a></li>
         <li><a href="index.html#questions">Questions</a></li>
       </ul></div>
       <div class="f-col"><h4>Contact</h4><ul>
@@ -283,12 +310,24 @@
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
 <script src="assets/data.js"></script>
+<script src="assets/posts.js"></script>
 <script>
-  /* the hero image name lives in the catalogue with everything else */
+  /* page images come from the catalogue, so they are swapped in one file */
   (function(){
-    var img = document.getElementById("heroImg");
-    if(img && window.BRAMWELL_SITE) img.src = window.BRAMWELL_MEDIA + window.BRAMWELL_SITE.heroHome;
+    var S = window.BRAMWELL_SITE, M = window.BRAMWELL_MEDIA;
+    if(!S) return;
+    var map = {
+      heroImg: S.heroHome, bandImg: S.masterplan, ctaImg: S.towerDusk,
+      mos1: S.aerial, mos2: S.amenityDeck, mos3: S.villaStreet,
+      mos4: S.construction, mos5: S.materials,
+      duo1: S.meetingRoom, duo2: S.desk
+    };
+    Object.keys(map).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && map[id]) el.src = M + map[id];
+    });
   })();
 </script>
 <script src="assets/site.js"></script>

@@ -3,27 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Property | Bramwell &amp; Partners</title>
-<meta name="description" id="pdDesc" content="A property from Bramwell and Partners, with the net yield estimate worked through beside the advertised gross.">
+<title>Market Insight | Bramwell &amp; Partners</title>
+<meta name="description" id="artDesc" content="Market analysis from Bramwell and Partners, a boutique property advisory in Dubai and Abu Dhabi.">
 <meta name="theme-color" content="#FBF9F6">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Property | Bramwell &amp; Partners">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Market Insight | Bramwell &amp; Partners">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
-<style>
-  /* the detail page starts light under the nav rather than with a dark header */
-  body{padding-top:var(--nav-h)}
-</style>
 </head>
 <body>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 
-<header class="nav solid" id="nav">
+<header class="nav on-dark" id="nav">
   <a class="brand" href="index.html">Bramwell <i>&amp;</i> Partners</a>
   <nav class="nav-links" id="navLinks">
     <a href="properties.html?deal=Off%20plan">Off Plan</a>
@@ -37,20 +33,20 @@
   </button>
 </header>
 
-<!-- filled from the catalogue by site.js, using the id in the query string -->
-<main id="pd"></main>
+<!-- filled from assets/posts.js using the id in the query string -->
+<main id="article"></main>
 
-<!-- ============================== MORE ============================== -->
+<!-- ============================== RELATED ============================== -->
 <section class="pad" style="background:var(--paper-2)">
   <div class="wrap">
     <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end">
       <div class="head">
-        <p class="mono eyebrow rv">Also available</p>
-        <h2 class="rv d1" style="font-size:clamp(1.6rem,1.1rem + 1.8vw,2.6rem)">Others worth a look.</h2>
+        <p class="mono eyebrow rv">Keep reading</p>
+        <h2 class="rv d1" style="font-size:clamp(1.5rem,1.1rem + 1.6vw,2.4rem)">More market insights.</h2>
       </div>
-      <a class="btn btn-ghost rv d2" href="properties.html">All properties</a>
+      <a class="btn btn-ghost rv d2" href="insights.html">All insights</a>
     </div>
-    <div class="grid-p" id="more" style="margin-top:clamp(2rem,4vw,3rem)"></div>
+    <div class="grid-b" id="related" style="margin-top:clamp(2rem,4vw,3rem)"></div>
   </div>
 </section>
 
@@ -59,24 +55,15 @@
   <div class="wrap" style="display:grid;gap:2rem;justify-items:start">
     <div class="head">
       <p class="mono eyebrow rv">Begin</p>
-      <h2 class="rv d1">Want the full file on this one?</h2>
-      <p class="lede rv d2">We will send the net yield model, the supply pipeline around it, the developer record and the case against buying it.</p>
+      <h2 class="rv d1">Put this against a real position.</h2>
+      <p class="lede rv d2">Tell us your brief and we will run the same arithmetic against properties that actually fit it, off plan or ready.</p>
     </div>
     <div class="rv d3" style="display:flex;flex-wrap:wrap;gap:.8rem">
-      <a class="btn btn-brass" href="contact.html">Request the file</a>
-      <a class="btn" href="about.html">How we work</a>
+      <a class="btn btn-brass" href="contact.html">Request a consultation</a>
+      <a class="btn" href="properties.html?deal=Off%20plan">See off plan</a>
     </div>
   </div>
 </section>
-
-<!-- lightbox -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Property images">
-  <button class="lb-close" id="lbClose" aria-label="Close">&#10005;</button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
-  <img id="lbImg" alt="">
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
-  <span class="lb-count" id="lbCount"></span>
-</div>
 
 <footer>
   <div class="wrap">

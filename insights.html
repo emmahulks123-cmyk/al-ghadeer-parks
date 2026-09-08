@@ -3,21 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Property | Bramwell &amp; Partners</title>
-<meta name="description" id="pdDesc" content="A property from Bramwell and Partners, with the net yield estimate worked through beside the advertised gross.">
+<title>Market Insights | Bramwell &amp; Partners, Dubai &amp; Abu Dhabi</title>
+<meta name="description" content="Plain analysis of the Dubai and Abu Dhabi property markets: net yields, off plan registration, supply pipelines and developer track records.">
 <meta name="theme-color" content="#FBF9F6">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Property | Bramwell &amp; Partners">
+<meta property="og:title" content="Market Insights | Bramwell &amp; Partners">
+<meta property="og:description" content="Plain analysis of the Dubai and Abu Dhabi property markets.">
+<meta property="og:url" content="https://bramwellre.com/insights.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
-<style>
-  /* the detail page starts light under the nav rather than with a dark header */
-  body{padding-top:var(--nav-h)}
-</style>
 </head>
 <body>
 
@@ -37,46 +35,50 @@
   </button>
 </header>
 
-<!-- filled from the catalogue by site.js, using the id in the query string -->
-<main id="pd"></main>
-
-<!-- ============================== MORE ============================== -->
-<section class="pad" style="background:var(--paper-2)">
+<section class="phead">
+  <div class="ph" data-parallax="8" aria-hidden="true"><img id="pheadImg" alt="" decoding="async" src=""></div>
   <div class="wrap">
-    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end">
-      <div class="head">
-        <p class="mono eyebrow rv">Also available</p>
-        <h2 class="rv d1" style="font-size:clamp(1.6rem,1.1rem + 1.8vw,2.6rem)">Others worth a look.</h2>
-      </div>
-      <a class="btn btn-ghost rv d2" href="properties.html">All properties</a>
+    <p class="mono eyebrow">Market insights</p>
+    <h1>The analysis we would want if we were buying.</h1>
+    <p class="lede">No forecasts, no market cheerleading. Just the arithmetic and the paperwork that decide whether a purchase works, written the way we explain it to clients.</p>
+  </div>
+</section>
+
+<!-- featured, the most recent piece -->
+<section class="pad">
+  <div class="wrap">
+    <div class="grid-b" data-posts="featured" data-limit="1"></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- the rest -->
+<section class="pad">
+  <div class="wrap">
+    <div class="head" style="max-width:none">
+      <p class="mono eyebrow rv">More</p>
+      <h2 class="rv d1" style="font-size:clamp(1.6rem,1.1rem + 1.9vw,2.8rem);max-width:18ch">Everything else worth reading.</h2>
     </div>
-    <div class="grid-p" id="more" style="margin-top:clamp(2rem,4vw,3rem)"></div>
+    <div class="grid-b" data-posts="latest" data-skip="1" data-limit="20" style="margin-top:clamp(2.2rem,5vw,3.5rem)"></div>
   </div>
 </section>
 
 <!-- ============================== CTA ============================== -->
-<section class="dark pad">
-  <div class="wrap" style="display:grid;gap:2rem;justify-items:start">
+<section class="band">
+  <div class="ph" data-parallax="8" aria-hidden="true"><img id="ctaImg" alt="" loading="lazy" decoding="async" src=""></div>
+  <div class="wrap">
     <div class="head">
       <p class="mono eyebrow rv">Begin</p>
-      <h2 class="rv d1">Want the full file on this one?</h2>
-      <p class="lede rv d2">We will send the net yield model, the supply pipeline around it, the developer record and the case against buying it.</p>
+      <h2 class="rv d1">Want this applied to your own position?</h2>
+      <p class="lede rv d2">Tell us what you are solving for and we will run the same analysis against the properties that actually fit it.</p>
     </div>
-    <div class="rv d3" style="display:flex;flex-wrap:wrap;gap:.8rem">
-      <a class="btn btn-brass" href="contact.html">Request the file</a>
-      <a class="btn" href="about.html">How we work</a>
+    <div class="rv d3" style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem">
+      <a class="btn btn-brass" href="contact.html">Request a consultation</a>
+      <a class="btn" href="properties.html?deal=Off%20plan">See off plan</a>
     </div>
   </div>
 </section>
-
-<!-- lightbox -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Property images">
-  <button class="lb-close" id="lbClose" aria-label="Close">&#10005;</button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
-  <img id="lbImg" alt="">
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
-  <span class="lb-count" id="lbCount"></span>
-</div>
 
 <footer>
   <div class="wrap">
@@ -114,6 +116,14 @@
 <script src="assets/config.js"></script>
 <script src="assets/data.js"></script>
 <script src="assets/posts.js"></script>
+<script>
+  (function(){
+    var S = window.BRAMWELL_SITE, M = window.BRAMWELL_MEDIA;
+    if(!S) return;
+    var a = document.getElementById("pheadImg"); if(a) a.src = M + S.skyline;
+    var b = document.getElementById("ctaImg");   if(b) b.src = M + S.meetingRoom;
+  })();
+</script>
 <script src="assets/site.js"></script>
 </body>
 </html>

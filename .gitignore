@@ -1,0 +1,9 @@
+# Leads are business data, never commit them
+api/leads.csv
+
+# Downloaded images, fetched with tools/fetch-images.sh
+assets/img/
+
+# Editor and OS noise
+.DS_Store
+*.bak
