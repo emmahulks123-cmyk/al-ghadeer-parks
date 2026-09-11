@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AL GHADEER PARKS - LANDING PAGE BEHAVIOUR
+   AL GHADEER - LANDING PAGE BEHAVIOUR
    --------------------------------------------------------------------------
    Handles the images, the reveal animations, the sticky mobile bar and,
    most importantly, the lead form: validation, spam protection, reCAPTCHA v3,
@@ -411,7 +411,7 @@
     btn.setAttribute("aria-busy", busy ? "true" : "false");
     btn.disabled = !!busy;
     var label = btn.querySelector(".btn__label");
-    if (label) label.textContent = busy ? (busyLabel || "Sending") : "Get the Price List";
+    if (label) label.textContent = busy ? (busyLabel || "Sending") : "Get Prices & Sizes";
   }
 
   /* ---------- submit ------------------------------------------------------- */
@@ -508,10 +508,10 @@
       timeline:    form.elements.timeline.value,
       timeline_label: timelineLabel,
       form_location: form.elements.form_location ? form.elements.form_location.value : "",
-      project:     "Al Ghadeer Parks",
-      source:      "Al Ghadeer Parks Landing Page",
+      project:     "Al Ghadeer",
+      source:      "Al Ghadeer Landing Page",
       /* A ready made line for the Go High Level contact note or opportunity */
-      notes:       "Al Ghadeer Parks enquiry. Buying timeline: " + timelineLabel +
+      notes:       "Al Ghadeer enquiry. Buying timeline: " + timelineLabel +
                    ". Submitted from the " + (form.elements.form_location ? form.elements.form_location.value : "") +
                    " form.",
       page_url:    window.location.href,

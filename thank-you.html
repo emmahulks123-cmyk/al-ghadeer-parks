@@ -6,8 +6,8 @@
 <meta name="color-scheme" content="light">
 
 <!-- ============================ EDIT: TITLE ============================ -->
-<title>Thank you | Al Ghadeer Parks</title>
-<meta name="description" content="Your request has been received. We are sending the Al Ghadeer Parks details to your WhatsApp now.">
+<title>Thank you | Al Ghadeer</title>
+<meta name="description" content="Your request has been received. We are sending the Al Ghadeer prices and sizes to your WhatsApp now.">
 <!-- IMPORTANT: this page must stay out of Google, it is a conversion page only -->
 <meta name="robots" content="noindex, nofollow">
 
@@ -26,8 +26,7 @@
 <header class="header">
   <div class="wrap header__inner">
     <a class="brand" href="index.html">
-      <span class="brand__name">Al Ghadeer Parks</span>
-      <span class="brand__by">by Aldar</span>
+      <span class="brand__name">Al Ghadeer</span>
     </a>
   </div>
 </header>
@@ -45,8 +44,8 @@
 
       <p class="ty__lead">
         Your details are with our team. We are putting together the
-        <strong>floor plans, the payment plan and what is still available</strong>
-        and sending it to your WhatsApp now.
+        <strong>prices, the unit sizes in sqft and the floor plans</strong>
+        and sending them to your WhatsApp now.
       </p>
 
       <div class="ty__actions">
@@ -68,7 +67,7 @@
         </div>
         <div>
           <h3>You get the real numbers</h3>
-          <p>Full payment plan, service charges and the total cost, in writing.</p>
+          <p>Prices, sizes in sqft and the full payment plan, in writing.</p>
         </div>
         <div>
           <h3>You decide, with no pressure</h3>
@@ -109,7 +108,7 @@
   /* ---------- 1. Fire the Meta conversion -------------------------------- */
   if (window.LP_TRACK) {
     window.LP_TRACK.lead(lead.event_id || "", {
-      content_name: "Al Ghadeer Parks",
+      content_name: "Al Ghadeer",
       content_category: "Off Plan Townhouse"
     });
   }
@@ -131,7 +130,7 @@
 
   var waUrl = "";
   if (configured) {
-    var text = String(wa.message || "Hi, I just requested the Al Ghadeer Parks details.")
+    var text = String(wa.message || "Hi, I just requested the Al Ghadeer prices and sizes.")
                  .replace("{{name}}", lead.name || "");
     waUrl = "https://wa.me/" + number + "?text=" + encodeURIComponent(text);
     if (btn) btn.setAttribute("href", waUrl);

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AL GHADEER PARKS - LANDING PAGE CONFIGURATION
+   AL GHADEER - LANDING PAGE CONFIGURATION
    ==========================================================================
 
    THIS IS THE ONLY FILE YOU NEED TO EDIT TO MAKE THE PAGE WORK.
@@ -30,7 +30,7 @@ window.LP_CONFIG = {
      c) Email Templates ->  Create New Template. In the template body paste
         the variables listed under "templateParams" further down, for example:
 
-            New lead from the Al Ghadeer Parks landing page
+            New lead from the Al Ghadeer landing page
 
             Name:      {{lead_name}}
             Phone:     {{lead_phone}}
@@ -80,7 +80,7 @@ window.LP_CONFIG = {
      ------------------------------------------------------------------------
      Setup:
      a) Go to https://www.google.com/recaptcha/admin/create
-     b) Label:      Al Ghadeer Parks Landing
+     b) Label:      Al Ghadeer Landing
         Type:       reCAPTCHA v3   (this is the invisible score-based one)
         Domains:    add your live domain, plus "localhost" while testing
      c) Copy the SITE KEY into siteKey below.
@@ -138,7 +138,7 @@ window.LP_CONFIG = {
      ---------------------------------------------------------------------- */
   meta: {
     enabled: true,
-    pixelId: "YOUR_META_PIXEL_ID",   // e.g. "1234567890123456"
+    pixelId: "2029165057806823",   // Meta dataset ID
     // Optional. If you also run Conversions API through a tool that reads
     // an event ID for deduplication, this page generates one per lead and
     // passes it to Zapier as "event_id".
@@ -161,7 +161,7 @@ window.LP_CONFIG = {
   whatsapp: {
     number: "971502647803",
     // {{name}} is replaced with whatever the lead typed into the form.
-    message: "Hi, I just requested the Al Ghadeer Parks details on your website. My name is {{name}}. Please send me the floor plans, the payment plan and the available units."
+    message: "Hi, I just asked for the Al Ghadeer prices and sizes on your website. My name is {{name}}. Please send me the prices, the unit sizes in sqft, the floor plans and what is available."
   },
 
 
@@ -177,7 +177,7 @@ window.LP_CONFIG = {
     // the offer on the left. Change to "left" to mirror it.
     heroFormSide: "right",
 
-    // Show the fixed "Get the price list" bar at the bottom on mobile.
+    // Show the fixed "Get Prices & Sizes" bar at the bottom on mobile.
     mobileStickyBar: true,
 
     // On the thank you page, open WhatsApp automatically after this many
